@@ -16,4 +16,9 @@ public class UserController {
         this.userService = userService;
     }
 
+//    POST /users
+//    GET /users/{id}
+//    PUT /users/{id}
+//    DELETE /users/{id}
+
 }
