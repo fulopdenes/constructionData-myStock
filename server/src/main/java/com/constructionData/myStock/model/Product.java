@@ -39,4 +39,8 @@ public class Product {
     //Site-installed
     private LocalDateTime timeOfInstalled; // dateAndTime
 
+    //Server
+    private LocalDateTime lastTimeOfModified; // dateAndTime
+
+
 }
