@@ -1,10 +1,11 @@
 package com.constructionData.myStock.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+
+import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Getter
 @Setter
@@ -16,6 +17,10 @@ public class Product {
 
     //Office-Define
     @Id
+    @Basic(optional = false)
+    @Column(updatable = false, nullable = false)
+    @SequenceGenerator(name = "product_id", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String relatedUnit; // VII.001
     private String category; // parketta
@@ -41,6 +46,4 @@ public class Product {
 
     //Server
     private LocalDateTime lastTimeOfModified; // dateAndTime
-
-
 }
