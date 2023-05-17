@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("products")
 public class ProductController {
     private final ProductService productService;
@@ -22,9 +22,8 @@ public class ProductController {
 
     // TODO: write test of each endpoints with all kind of scenarios.
 
-
     @GetMapping("/")
-    public List<Product> getAll() {return productService.getAllProducts();}
+    public List<Product> getAllProducts() {return productService.getAllProducts();}
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable Long id) {
