@@ -6,10 +6,10 @@ import com.constructionData.myStock.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("products")
@@ -36,7 +36,7 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Product> createProduct(@RequestBody Product newProduct) {
+    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO newProduct) {
         Product createdProduct = productService.createProduct(newProduct);
 
         if (createdProduct != null) {
@@ -48,12 +48,12 @@ public class ProductController {
 
     @PutMapping("/products/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
-        Product existingProduct = productService.getProductById(id);
-
-        if (existingProduct == null) {
+        Optional<Product> optionalProduct = Optional.ofNullable(productService.getProductById(id));
+        if (optionalProduct.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            Product updatedDatabaseProduct = productService.updateProduct(updatedProduct);
+            Product product = optionalProduct.get();
+            Product updatedDatabaseProduct = productService.updateProduct(product, updatedProduct);
             return new ResponseEntity<>(updatedDatabaseProduct, HttpStatus.OK);
         }
     }
