@@ -19,7 +19,8 @@ public record ProductDTO(
         String deliveryType, // generalDelivery
         String roomNameOfInstallation, // nappali
         String roomPlanCode, //optional // N-05
-        LocalDateTime timeOfRecord, // dateAndTime
+
+//        LocalDateTime timeOfRecord, // dateAndTime
 
         //Office-ordered
         LocalDateTime timeOfOrder, // dateAndTime
@@ -30,10 +31,10 @@ public record ProductDTO(
         String placeOfStorage, // P1 raktar
 
         //Site-installed
-        LocalDateTime timeOfInstalled, // dateAndTime
+        LocalDateTime timeOfInstalled // dateAndTime
 
         //Server
-        LocalDateTime lastTimeOfModified // dateAndTime
+//        LocalDateTime lastTimeOfModified // dateAndTime
 ) {
 
     @Builder
