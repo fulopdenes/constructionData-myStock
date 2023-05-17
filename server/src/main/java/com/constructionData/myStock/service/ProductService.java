@@ -27,7 +27,7 @@ public class ProductService {
 
     public Product getProductById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product id is not found."));
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product "+ id + " is not found."));
     }
 
     public void deleteProduct(Long id) {
