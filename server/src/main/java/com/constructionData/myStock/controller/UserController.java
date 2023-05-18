@@ -17,8 +17,4 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/test")
-    public String statusCheck() {
-        return "Working...";
-    }
 }
