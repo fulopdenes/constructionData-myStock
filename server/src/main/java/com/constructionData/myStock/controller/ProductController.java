@@ -25,7 +25,7 @@ public class ProductController {
     @GetMapping("/")
     public List<Product> getAllProducts() {return productService.getAllProducts();}
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         if (product.getId() != null) {
@@ -38,7 +38,8 @@ public class ProductController {
     @PostMapping("/")
     public ResponseEntity<Product> createProduct(@RequestBody ProductDTO newProduct) {
         Product createdProduct = productService.createProduct(newProduct);
-
+        // TODO: if product parameters are not proper, then should inform the client what parameters are
+        //  missing or obligatory.
         if (createdProduct != null) {
             return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
         } else {
@@ -46,7 +47,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
         Optional<Product> optionalProduct = Optional.ofNullable(productService.getProductById(id));
         if (optionalProduct.isEmpty()) {
@@ -58,7 +59,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         Product existingProduct = productService.getProductById(id);
 
