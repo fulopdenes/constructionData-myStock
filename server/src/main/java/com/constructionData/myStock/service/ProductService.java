@@ -41,7 +41,6 @@ public class ProductService {
     public Product createProduct(ProductDTO newProduct) {
 
         Product createdNewProduct = Product.builder()
-                // TODO: newProductId how will be generated?
                 // TODO: define when and what kind of data will be added to this entity
                 .productName(newProduct.productName())
                 .productTechCode(newProduct.productTechCode())
