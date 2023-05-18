@@ -20,7 +20,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    // TODO: write test of each endpoints with all kind of scenarios.
+    // TODO: write test of each endpoints with all kind of scenarios: or desired result or relevant httpResponse.
 
     @GetMapping("/")
     public List<Product> getAllProducts() {return productService.getAllProducts();}
