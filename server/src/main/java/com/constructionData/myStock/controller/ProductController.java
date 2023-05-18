@@ -6,12 +6,12 @@ import com.constructionData.myStock.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("products")
 public class ProductController {
     private final ProductService productService;
@@ -22,11 +22,10 @@ public class ProductController {
 
     // TODO: write test of each endpoints with all kind of scenarios.
 
-
     @GetMapping("/")
-    public List<Product> getAll() {return productService.getAllProducts();}
+    public List<Product> getAllProducts() {return productService.getAllProducts();}
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         if (product.getId() != null) {
@@ -37,9 +36,10 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Product> createProduct(@RequestBody Product newProduct) {
+    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO newProduct) {
         Product createdProduct = productService.createProduct(newProduct);
-
+        // TODO: if product parameters are not proper, then should inform the client what parameters are
+        //  missing or obligatory.
         if (createdProduct != null) {
             return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
         } else {
@@ -47,19 +47,19 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
-        Product existingProduct = productService.getProductById(id);
-
-        if (existingProduct == null) {
+        Optional<Product> optionalProduct = Optional.ofNullable(productService.getProductById(id));
+        if (optionalProduct.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            Product updatedDatabaseProduct = productService.updateProduct(updatedProduct);
+            Product product = optionalProduct.get();
+            Product updatedDatabaseProduct = productService.updateProduct(product, updatedProduct);
             return new ResponseEntity<>(updatedDatabaseProduct, HttpStatus.OK);
         }
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         Product existingProduct = productService.getProductById(id);
 

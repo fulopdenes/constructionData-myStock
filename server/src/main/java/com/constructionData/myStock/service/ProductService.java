@@ -14,11 +14,14 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class ProductService {
+
     private final ProductRepository productRepository;
+
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
+
     }
 
     public List<Product> getAllProducts() {
@@ -27,49 +30,91 @@ public class ProductService {
 
     public Product getProductById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product id is not found."));
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product with id " + id + " is not found" +
+                        "."));
     }
 
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
 
-    public Product createProduct(Product newProduct) {
+    public Product createProduct(ProductDTO newProduct) {
+
         Product createdNewProduct = Product.builder()
-                // TODO: newProductId how will be generated?
-                .productName(newProduct.getProductName())
-                .productTechCode(newProduct.getProductTechCode())
-                .category(newProduct.getCategory())
-                .deliveryNoteID(newProduct.getDeliveryNoteID())
-                .deliveryType(newProduct.getDeliveryType())
-                .placeOfStorage(newProduct.getPlaceOfStorage())
-                .quantityType(newProduct.getQuantityType())
-                .relatedUnit(newProduct.getRelatedUnit())
-                .roomPlanCode(newProduct.getRoomPlanCode())
-                .category(newProduct.getCategory())
-                .timeOfRecord(LocalDateTime.now())
-                .lastTimeOfModified(LocalDateTime.now())
+                // TODO: define when and what kind of data will be added to this entity
+                .productName(newProduct.productName())
+                .productTechCode(newProduct.productTechCode())
+                .category(newProduct.category())
+                .deliveryNoteID(newProduct.deliveryNoteID())
+                .deliveryType(newProduct.deliveryType())
+                .placeOfStorage(newProduct.placeOfStorage())
+                .quantityType(newProduct.quantityType())
+                .relatedUnit(newProduct.relatedUnit())
+                .roomPlanCode(newProduct.roomPlanCode())
+                .category(newProduct.category())
+                .timeOfRecord(LocalDateTime.now()) // the timeOfRecord is defined at this moment.
+                .lastTimeOfModified(LocalDateTime.now()) // the lastTimeOfModified is defined at this moment.
+                .quantity(newProduct.quantity())
+                .roomNameOfInstallation(newProduct.roomNameOfInstallation())
+                .timeOfOrder(newProduct.timeOfOrder())
+                .timeOfArrivedAtSite(newProduct.timeOfArrivedAtSite())
+                .timeOfInstalled(newProduct.timeOfInstalled())
                 .build();
 
         return productRepository.save(createdNewProduct);
     }
 
-    public Product updateProduct(ProductDTO updatedProductDTO) {
+    public Product updateProduct(Product existingProduct, ProductDTO updatedProductDTO) {
 
-        Product underUpdateProduct = Product.builder()
-                .productName(updatedProductDTO.productName())
-                .productTechCode(updatedProductDTO.productTechCode())
-                .quantity(updatedProductDTO.quantity())
-                .relatedUnit(updatedProductDTO.relatedUnit())
-                .quantityType(updatedProductDTO.quantityType())
-                .category(updatedProductDTO.category())
-                .lastTimeOfModified(LocalDateTime.now()) // It is defined at LocalDateTimeNow.
-                .deliveryNoteID(updatedProductDTO.deliveryNoteID())
-                .placeOfStorage(updatedProductDTO.placeOfStorage())
-                .roomPlanCode(updatedProductDTO.roomPlanCode())
-                .deliveryType(updatedProductDTO.deliveryType())
-                .build();
+        // Apply partial update to the entity
+        if (updatedProductDTO.productName() != null) {
+            existingProduct.setProductName(updatedProductDTO.productName());
+        }
+        if (updatedProductDTO.productTechCode() != null) {
+            existingProduct.setProductTechCode(updatedProductDTO.productTechCode());
+        }
+        if (updatedProductDTO.quantity() != null) {
+            existingProduct.setQuantity(updatedProductDTO.quantity());
+        }
+        if (updatedProductDTO.relatedUnit() != null) {
+            existingProduct.setRelatedUnit(updatedProductDTO.relatedUnit());
+        }
+        if (updatedProductDTO.quantityType() != null) {
+            existingProduct.setQuantityType(updatedProductDTO.quantityType());
+        }
+        if (updatedProductDTO.category() != null) {
+            existingProduct.setCategory(updatedProductDTO.category());
+        }
 
-        return productRepository.save(underUpdateProduct);
+        existingProduct.setLastTimeOfModified(LocalDateTime.now()); // It is defined at LocalDateTimeNow.
+
+        if (updatedProductDTO.deliveryNoteID() != null) {
+            existingProduct.setDeliveryNoteID(updatedProductDTO.deliveryNoteID());
+        }
+        if (updatedProductDTO.placeOfStorage() != null) {
+            existingProduct.setPlaceOfStorage(updatedProductDTO.placeOfStorage());
+        }
+        if (updatedProductDTO.roomPlanCode() != null) {
+            existingProduct.setRoomPlanCode(updatedProductDTO.roomPlanCode());
+        }
+        if (updatedProductDTO.deliveryType() != null) {
+            existingProduct.setDeliveryType(updatedProductDTO.deliveryType());
+        }
+        if (updatedProductDTO.roomNameOfInstallation() != null) {
+            existingProduct.setRoomNameOfInstallation(updatedProductDTO.roomNameOfInstallation());
+        }
+        if (updatedProductDTO.timeOfInstalled() != null) {
+            existingProduct.setTimeOfInstalled(updatedProductDTO.timeOfInstalled());
+        }
+        if (updatedProductDTO.timeOfArrivedAtSite() != null) {
+            existingProduct.setTimeOfArrivedAtSite(updatedProductDTO.timeOfArrivedAtSite());
+        }
+        if (updatedProductDTO.timeOfOrder() != null) {
+            existingProduct.setTimeOfOrder(updatedProductDTO.timeOfOrder());
+        }
+        // TODO: replace static conditions with EntityMapper
+
+        // Save the updated entity
+        return productRepository.save(existingProduct);
     }
 }
