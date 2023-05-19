@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material"
 
 const Register = () => {
+    const [user, setUser] = useState({name:"",email:"",password:""});
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setUser ({...user, [name]: value});
+    }
+
+    const handleSubmit = () => {
+        console.log(user)
+    }
+
     return (
         <Card sx={{
             p: 3,
@@ -18,10 +30,10 @@ const Register = () => {
                     Register Here!
                 </Typography>
             </CardContent>
-            <TextField id="outlined-basic" label="Name" variant="outlined" type={"text"}/>
-            <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"}/>
-            <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"}/>
-            <Button variant={"contained"}>Register</Button>
+            <TextField id="outlined-basic" label="Name" variant="outlined" type={"text"} name={"name"} onChange={handleChange} value={user.name}/>
+            <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"} name={"email"} onChange={handleChange} value={user.email}/>
+            <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"} name={"password"}onChange={handleChange} value={user.password}/>
+            <Button variant={"contained"} onClick={handleSubmit}>Register</Button>
         </Card>
     )
 }

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material"
 
 const Login = () => {
+    const [user, setUser] = useState({email:"",password:""});
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setUser ({...user, [name]: value});
+    }
+
+    const handleSubmit = () => {
+        console.log(user)
+    }
     return (
         <Card sx={{
             p: 3,
@@ -18,9 +29,9 @@ const Login = () => {
                     Login Here!
                 </Typography>
             </CardContent>
-                <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"}/>
-                <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"}/>
-                <Button variant={"contained"}>Login</Button>
+            <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"} name={"email"} onChange={handleChange} value={user.email}/>
+            <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"} name={"password"}onChange={handleChange} value={user.password}/>
+            <Button variant={"contained"} onClick={handleSubmit}>Login</Button>
         </Card>
     )
 }
