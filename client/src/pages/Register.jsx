@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material"
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
-    const [user, setUser] = useState({name:"",email:"",password:""});
+    const [user, setUser] = useState({username:"",password:"", email:""});
+    const navigator = useNavigate();
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -12,7 +14,15 @@ const Register = () => {
 
     const handleSubmit = async () => {
         console.log(user)
-        const res = await fetch("http://localhost:8080/api/users/", {
+        // const res = await fetch("http://localhost:8080/api/users/", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(user)
+        // })
+        console.log(JSON.stringify(user));
+        const res = await fetch(`http://localhost:8080/users/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +53,7 @@ const Register = () => {
                     Register Here!
                 </Typography>
             </CardContent>
-            <TextField id="outlined-basic" label="Name" variant="outlined" type={"text"} name={"name"} onChange={handleChange} value={user.name}/>
+            <TextField id="outlined-basic" label="Username" variant="outlined" type={"text"} name={"username"} onChange={handleChange} value={user.username}/>
             <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"} name={"email"} onChange={handleChange} value={user.email}/>
             <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"} name={"password"} onChange={handleChange} value={user.password}/>
             <Button variant={"contained"} onClick={handleSubmit}>Register</Button>
