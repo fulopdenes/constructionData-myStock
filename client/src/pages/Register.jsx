@@ -10,8 +10,21 @@ const Register = () => {
         setUser ({...user, [name]: value});
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         console.log(user)
+        const res = await fetch("http://localhost:8080/api/users/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        const data = await res.json()
+        if (res.ok) {
+            navigator("/");
+        } else {
+            console.log(data);
+        }
     }
 
     return (
@@ -32,7 +45,7 @@ const Register = () => {
             </CardContent>
             <TextField id="outlined-basic" label="Name" variant="outlined" type={"text"} name={"name"} onChange={handleChange} value={user.name}/>
             <TextField id="outlined-basic" label="Email" variant="outlined" type={"email"} name={"email"} onChange={handleChange} value={user.email}/>
-            <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"} name={"password"}onChange={handleChange} value={user.password}/>
+            <TextField id="outlined-basic" label="Password" variant="outlined" type={"password"} name={"password"} onChange={handleChange} value={user.password}/>
             <Button variant={"contained"} onClick={handleSubmit}>Register</Button>
         </Card>
     )
