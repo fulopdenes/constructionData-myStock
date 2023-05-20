@@ -14,7 +14,7 @@ const OnSite = () => {
             borderRadius: "15px"
         }} elevation={10}>
             <CardContent sx={{m: 0}}>
-                <Typography gutterButton variant={"h4"} component={"div"} sx={{m: 0}}>
+                <Typography variant={"h4"} component={"div"} sx={{m: 0}}>
                     Get element of:
                 </Typography>
             </CardContent>
