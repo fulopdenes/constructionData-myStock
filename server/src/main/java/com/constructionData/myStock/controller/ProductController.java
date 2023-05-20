@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+//@CrossOrigin(origins = {"http://192.168.0.17:3000", "http://localhost:3000"})
 @RequestMapping("products")
 public class ProductController {
     private final ProductService productService;
@@ -22,10 +23,10 @@ public class ProductController {
 
     // TODO: write test of each endpoints with all kind of scenarios: or desired result or relevant httpResponse.
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<Product> getAllProducts() {return productService.getAllProducts();}
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         if (product.getId() != null) {
@@ -35,7 +36,7 @@ public class ProductController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/new")
     public ResponseEntity<Product> createProduct(@RequestBody ProductDTO newProduct) {
         Product createdProduct = productService.createProduct(newProduct);
         // TODO: if product parameters are not proper, then should inform the client what parameters are
@@ -47,7 +48,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
         Optional<Product> optionalProduct = Optional.ofNullable(productService.getProductById(id));
         if (optionalProduct.isEmpty()) {
@@ -59,7 +60,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         Product existingProduct = productService.getProductById(id);
 
