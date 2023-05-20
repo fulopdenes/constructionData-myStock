@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = {"http://192.168.0.17:3000", "http://localhost:3000"})
 @RequestMapping("users")
 public class UserController {
 
@@ -26,7 +26,7 @@ public class UserController {
         // TODO: if product parameters are not proper, then should inform the client what parameters are
         //  missing or obligatory.
         if (createdUser != null) {
-            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+            return new ResponseEntity<>(createdUser, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
