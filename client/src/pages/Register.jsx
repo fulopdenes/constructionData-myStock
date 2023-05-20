@@ -14,14 +14,6 @@ const Register = () => {
 
     const handleSubmit = async () => {
         console.log(user)
-        // const res = await fetch("http://localhost:8080/api/users/", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        console.log(JSON.stringify(user));
         const res = await fetch(`http://localhost:8080/users/`, {
             method: "POST",
             headers: {
@@ -31,7 +23,7 @@ const Register = () => {
         })
         const data = await res.json()
         if (res.ok) {
-            navigator("/");
+            navigator("/login");
         } else {
             console.log(data);
         }
@@ -49,7 +41,7 @@ const Register = () => {
             borderRadius: "15px"
         }} elevation={10}>
             <CardContent sx={{m: 0}}>
-                <Typography gutterButton variant={"h4"} component={"div"} sx={{m: 0}}>
+                <Typography variant={"h4"} component={"div"} sx={{m: 0}}>
                     Register Here!
                 </Typography>
             </CardContent>
