@@ -26,12 +26,10 @@ const NavBar = () => {
                         <>
                             <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/"}>Office</Link></Button>
                             <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/onsite"}>OnSite</Link></Button>
-                            <Button><Link style={{color: "#fff", textDecoration: "none"}}
-                                          to={"/login"}>Login</Link></Button>
-                            <Button><Link style={{color: "#fff", textDecoration: "none"}}
-                                          to={"/register"}>Register</Link></Button>
-                            <Button><Link style={{color: "#fff", textDecoration: "none"}}
-                                          to={"/register"}>Add</Link></Button>
+                            {/*<Button><Link style={{color: "#fff", textDecoration: "none"}}*/}
+                            {/*              to={"/login"}>Login</Link></Button>*/}
+                            {/*<Button><Link style={{color: "#fff", textDecoration: "none"}}*/}
+                            {/*              to={"/register"}>Register</Link></Button>*/}
                         </>
                         :
                         <>
@@ -58,9 +56,8 @@ const NavBar = () => {
                             >
                                 <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/"}>Office</Link></MenuItem>
                                 <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/onsite"}>OnSite</Link></MenuItem>
-                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/login"}>Login</Link></MenuItem>
-                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/register"}>Register</Link></MenuItem>
-                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/new"}>New</Link></MenuItem>
+                                {/*<MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/login"}>Login</Link></MenuItem>*/}
+                                {/*<MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/register"}>Register</Link></MenuItem>*/}
                             </Menu>
                         </>
                     }
