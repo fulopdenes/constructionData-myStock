@@ -7,6 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +17,19 @@ import java.time.LocalDateTime;
 public class MyStockApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyStockApplication.class, args);
+
     }
+
+    @Configuration
+    public static class WebConfig implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**")
+                    .allowedOrigins("*")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE");
+        }
+    }
+
 
     @Bean
     CommandLineRunner commandLineRunner2(ProductRepository productRepository) {
@@ -91,5 +106,8 @@ public class MyStockApplication {
                     .build();
             productRepository.save(product6);
         };
+
     }
+
 }
+
