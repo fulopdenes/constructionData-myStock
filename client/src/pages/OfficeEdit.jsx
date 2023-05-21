@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {Box, SpeedDial, SpeedDialIcon, Typography} from "@mui/material";
-import ViewDataGrid from "../components/Grid/ViewDataGrid";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import {styled} from "@mui/material/styles";
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import EditIcon from '@mui/icons-material/Edit';
-
 import CircularIndeterminateLoading from "../components/CircularIndeterminateLoading";
 import {Link} from "react-router-dom";
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import EditableDataCrudGrid from "../components/Grid/EditableDataCrudGrid";
 
-const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
+
+const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     position: 'absolute',
     '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
         bottom: theme.spacing(2),
@@ -28,18 +28,17 @@ const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
 const withLink = (to, children) => <Link to={to}>{children}</Link>;
 
 const actions = [
-    {icon: withLink("/edit", <EditIcon sx={{color: "#000"}}/>), name: 'Edit Mode'},
-    // { icon: withLink("/delete", <DeleteIcon sx={{ color: red[500] }} />), name: 'Delete Element'},
-    {icon: withLink("/new", <AddCircleOutlineRoundedIcon color="primary"/>), name: 'Add new element'},
-    {icon: <DocumentScannerIcon color="disabled"/>, name: 'Scan document'}
+    { icon: withLink("/", <NavigateBeforeIcon sx={{ color: "#000" }} />), name: 'View Mode'},
+    { icon: withLink("/new", <AddCircleOutlineRoundedIcon color="primary"/>), name: 'Add New Product' },
+    { icon: <DocumentScannerIcon color="disabled"/>, name: 'Scan document' }
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`http://localhost:8080/products/all`, {signal}).then((res) => res.json());
+    return fetch(`http://localhost:8080/products/all`, { signal }).then((res) => res.json());
 };
 
-const Office = () => {
-    const [isLoading, setIsLoading] = useState(true);
+const OfficeEdit = () => {
+    let [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -61,13 +60,13 @@ const Office = () => {
     }, []);
 
     if (isLoading) {
-        return <CircularIndeterminateLoading/>;
+        return <CircularIndeterminateLoading />;
     }
     return (
         <>
             {/*    <Card sx={{*/}
-            {/*    p: 1,*/}
-            {/*    py: 1,*/}
+            {/*    p: 2,*/}
+            {/*    py: 2,*/}
             {/*    // maxWidth: "550px",*/}
             {/*    // margin: "2px auto",*/}
             {/*    display: "flex",*/}
@@ -75,21 +74,22 @@ const Office = () => {
             {/*    // gap: 0,*/}
             {/*    borderRadius: "15px"*/}
             {/*}} elevation={10}>*/}
+            {/*    <FullFeaturedCrudGrid/>*/}
             <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
-                VIEW MODE
+                EDIT MODE
             </Typography>
-            <ViewDataGrid products={data}/>
+            <EditableDataCrudGrid products={data} setData={setData}/>
             {/*<Button variant={"contained"}><SpeedDial ariaLabel={"SpeedDial basic example"}></SpeedDial></Button>*/}
             {/*<SpeedDial*/}
             {/*    ariaLabel="SpeedDial basic example"*/}
             {/*    icon={<SpeedDialIcon />}></SpeedDial>*/}
             {/*<PlaygroundSpeedDial/>*/}
-            <Box sx={{position: 'relative', mt: 0, height: 80}}>
+            <Box sx={{ position: 'relative', mt: 0, height: 80 }}>
 
                 <StyledSpeedDial
                     ariaLabel="SpeedDial playground example"
                     // hidden={hidden}
-                    icon={<SpeedDialIcon/>}
+                    icon={<SpeedDialIcon />}
                     direction="right"
                 >
                     {actions.map((action) => (
@@ -126,4 +126,4 @@ const Office = () => {
     )
 }
 
-export default Office;
+export default OfficeEdit;
