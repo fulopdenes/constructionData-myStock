@@ -20,9 +20,8 @@ const App = () => {
                     <Routes>
                         <Route path={"/"} element={<Office/>}/>
                         <Route path={"/edit"} element={<OfficeEdit/>}/>
-                        <Route path={"/registerek"} element={<RegisterPage/>}/>
                         {/*<Route path={"/login"} element={<Login/>}/>*/}
-                        <Route path={"/register"} element={<Register/>}/>
+                        {/*<Route path={"/register"} element={<Register/>}/>*/}
                         <Route path={"/new"} element={<AddNewElement/>}/>
                         <Route path={"/onsite"} element={<OnSite/>}/>
                     </Routes>
