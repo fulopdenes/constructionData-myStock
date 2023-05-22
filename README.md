@@ -10,8 +10,6 @@ This web-based program is very similar to the traditional Excel program. The adv
 
 <h2 align="left">3. Used technologies:</h2>
 
-###
-
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" width="52" alt="java logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="javascript logo"  />
@@ -22,4 +20,3 @@ This web-based program is very similar to the traditional Excel program. The adv
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="40" width="52" alt="spring logo"  />
 </div>
 
-###
