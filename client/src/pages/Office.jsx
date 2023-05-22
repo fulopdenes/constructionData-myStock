@@ -7,7 +7,7 @@ import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import EditIcon from '@mui/icons-material/Edit';
 
-import CircularIndeterminateLoading from "../components/CircularIndeterminateLoading";
+import CircularIndeterminateLoading from "../components/Loading/CircularIndeterminateLoading";
 import {Link} from "react-router-dom";
 
 const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
@@ -65,30 +65,14 @@ const Office = () => {
     }
     return (
         <>
-            {/*    <Card sx={{*/}
-            {/*    p: 1,*/}
-            {/*    py: 1,*/}
-            {/*    // maxWidth: "550px",*/}
-            {/*    // margin: "2px auto",*/}
-            {/*    display: "flex",*/}
-            {/*    flexDirection: "column",*/}
-            {/*    // gap: 0,*/}
-            {/*    borderRadius: "15px"*/}
-            {/*}} elevation={10}>*/}
             <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
                 VIEW MODE
             </Typography>
             <ViewDataGrid products={data}/>
-            {/*<Button variant={"contained"}><SpeedDial ariaLabel={"SpeedDial basic example"}></SpeedDial></Button>*/}
-            {/*<SpeedDial*/}
-            {/*    ariaLabel="SpeedDial basic example"*/}
-            {/*    icon={<SpeedDialIcon />}></SpeedDial>*/}
-            {/*<PlaygroundSpeedDial/>*/}
             <Box sx={{position: 'relative', mt: 0, height: 80}}>
 
                 <StyledSpeedDial
                     ariaLabel="SpeedDial playground example"
-                    // hidden={hidden}
                     icon={<SpeedDialIcon/>}
                     direction="right"
                 >
@@ -100,28 +84,7 @@ const Office = () => {
                         />
                     ))}
                 </StyledSpeedDial>
-
-                {/*    <SpeedDial*/}
-                {/*        ariaLabel="Save Feedback"*/}
-                {/*        icon={<SpeedDialIcon icon={<EditIcon />} openIcon={<EditIcon />} />}*/}
-                {/*        onClick={() => fabAction()}*/}
-                {/*        FabProps={{*/}
-                {/*          onClick: () => fabAction()*/}
-                {/*        }}*/}
-                {/*    open={true}*/}
-                {/*    direction="left">*/}
-                {/*    <SpeedDialAction*/}
-                {/*        icon={<EditIcon />}*/}
-                {/*        tooltipTitle="Add Point"*/}
-                {/*        onClick={() => fabActionAdd()} />*/}
-                {/*</SpeedDial>*/}
             </Box>
-            {/*<SpeedDialAction*/}
-            {/*    key={action.name}*/}
-            {/*    icon={action.icon}*/}
-            {/*    tooltipTitle={action.name}*/}
-            {/*/>*/}
-            {/*</Card>*/}
         </>
     )
 }
