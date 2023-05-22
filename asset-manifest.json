@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/constructionData-myStock.git/static/css/main.233b3b67.css",
+    "main.js": "/constructionData-myStock.git/static/js/main.371633d4.js",
+    "index.html": "/constructionData-myStock.git/index.html",
+    "main.233b3b67.css.map": "/constructionData-myStock.git/static/css/main.233b3b67.css.map",
+    "main.371633d4.js.map": "/constructionData-myStock.git/static/js/main.371633d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.233b3b67.css",
+    "static/js/main.371633d4.js"
+  ]
+}
