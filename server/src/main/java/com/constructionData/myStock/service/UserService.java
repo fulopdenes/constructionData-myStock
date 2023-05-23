@@ -18,9 +18,9 @@ public class UserService {
     public AppUser createUser(UserDTO newUser) {
 
         AppUser createNewUser = AppUser.builder()
-                .email(newUser.email())
-                .username(newUser.username())
-                .password(newUser.password())
+                .email(newUser.getEmail())
+                .username(newUser.getUsername())
+                .password(newUser.getPassword())
                 .build();
 
         return userRepository.save(createNewUser);

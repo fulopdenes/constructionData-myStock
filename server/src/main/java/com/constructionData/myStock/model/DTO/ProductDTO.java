@@ -1,43 +1,42 @@
 package com.constructionData.myStock.model.DTO;
 
-import jakarta.persistence.Id;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
+@Setter
+@Getter
+@Builder
+public class ProductDTO {
 
-public record ProductDTO(
+    // TODO: test DTO parameters
 
-        // TODO: test DTO parameters
-
-        //Office-Define
-        String relatedUnit, // VII.001
-        String category, // parketta
-        String productName, // tölgy juhar
-        Double quantity, // 2
-        String quantityType, // nm;
-        String productTechCode, // 053900699
-        String deliveryType, // generalDelivery
-        String roomNameOfInstallation, // nappali
-        String roomPlanCode, //optional // N-05
+    //Office-Define
+    private String relatedUnit; // VII.001
+    private String category; // parketta
+    private String productName; // tölgy juhar
+    private Double quantity; // 2
+    private String quantityType; // nm;
+    private String productTechCode; // 053900699
+    private String deliveryType; // generalDelivery
+    private String roomNameOfInstallation; // nappali
+    private String roomPlanCode; //optional // N-05
 
 //        LocalDateTime timeOfRecord, // dateAndTime
 
-        //Office-ordered
-        LocalDateTime timeOfOrder, // dateAndTime
+    //Office-ordered
+    private LocalDateTime timeOfOrder; // dateAndTime
 
-        //Site-handover
-        String deliveryNoteID, //optional; // 1568
-        LocalDateTime timeOfArrivedAtSite, // dateAndTime
-        String placeOfStorage, // P1 raktar
+    //Site-handover
+    private String deliveryNoteID; //optional; // 1568
+    private LocalDateTime timeOfArrivedAtSite; // dateAndTime
+    private String placeOfStorage; // P1 raktar
 
-        //Site-installed
-        LocalDateTime timeOfInstalled // dateAndTime
+    //Site-installed
+    private LocalDateTime timeOfInstalled; // dateAndTime
 
-        //Server
-//        LocalDateTime lastTimeOfModified // dateAndTime
-) {
-
-    @Builder
-    public ProductDTO {
-    }
+    //Server
+//         private LocalDateTime lastTimeOfModified; // dateAndTime
 }
+

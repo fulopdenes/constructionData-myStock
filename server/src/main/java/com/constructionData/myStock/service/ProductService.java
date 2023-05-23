@@ -42,23 +42,22 @@ public class ProductService {
 
         Product createdNewProduct = Product.builder()
                 // TODO: define when and what kind of data will be added to this entity
-                .productName(newProduct.productName())
-                .productTechCode(newProduct.productTechCode())
-                .category(newProduct.category())
-                .deliveryNoteID(newProduct.deliveryNoteID())
-                .deliveryType(newProduct.deliveryType())
-                .placeOfStorage(newProduct.placeOfStorage())
-                .quantityType(newProduct.quantityType())
-                .relatedUnit(newProduct.relatedUnit())
-                .roomPlanCode(newProduct.roomPlanCode())
-                .category(newProduct.category())
+                .productName(newProduct.getProductName())
+                .productTechCode(newProduct.getProductTechCode())
+                .category(newProduct.getCategory())
+                .deliveryNoteID(newProduct.getDeliveryNoteID())
+                .deliveryType(newProduct.getDeliveryType())
+                .placeOfStorage(newProduct.getPlaceOfStorage())
+                .quantityType(newProduct.getQuantityType())
+                .relatedUnit(newProduct.getRelatedUnit())
+                .roomPlanCode(newProduct.getRoomPlanCode())
                 .timeOfRecord(LocalDateTime.now()) // the timeOfRecord is defined at this moment.
                 .lastTimeOfModified(LocalDateTime.now()) // the lastTimeOfModified is defined at this moment.
-                .quantity(newProduct.quantity())
-                .roomNameOfInstallation(newProduct.roomNameOfInstallation())
-                .timeOfOrder(newProduct.timeOfOrder())
-                .timeOfArrivedAtSite(newProduct.timeOfArrivedAtSite())
-                .timeOfInstalled(newProduct.timeOfInstalled())
+                .quantity(newProduct.getQuantity())
+                .roomNameOfInstallation(newProduct.getRoomNameOfInstallation())
+                .timeOfOrder(newProduct.getTimeOfOrder())
+                .timeOfArrivedAtSite(newProduct.getTimeOfArrivedAtSite())
+                .timeOfInstalled(newProduct.getTimeOfInstalled())
                 .build();
 
         return productRepository.save(createdNewProduct);
@@ -67,50 +66,50 @@ public class ProductService {
     public Product updateProduct(Product existingProduct, ProductDTO updatedProductDTO) {
 
         // Apply partial update to the entity
-        if (updatedProductDTO.productName() != null) {
-            existingProduct.setProductName(updatedProductDTO.productName());
+        if (updatedProductDTO.getProductName() != null) {
+            existingProduct.setProductName(updatedProductDTO.getProductName());
         }
-        if (updatedProductDTO.productTechCode() != null) {
-            existingProduct.setProductTechCode(updatedProductDTO.productTechCode());
+        if (updatedProductDTO.getProductName() != null) {
+            existingProduct.setProductTechCode(updatedProductDTO.getProductTechCode());
         }
-        if (updatedProductDTO.quantity() != null) {
-            existingProduct.setQuantity(updatedProductDTO.quantity());
+        if (updatedProductDTO.getProductName() != null) {
+            existingProduct.setQuantity(updatedProductDTO.getQuantity());
         }
-        if (updatedProductDTO.relatedUnit() != null) {
-            existingProduct.setRelatedUnit(updatedProductDTO.relatedUnit());
+        if (updatedProductDTO.getProductTechCode() != null) {
+            existingProduct.setRelatedUnit(updatedProductDTO.getRelatedUnit());
         }
-        if (updatedProductDTO.quantityType() != null) {
-            existingProduct.setQuantityType(updatedProductDTO.quantityType());
+        if (updatedProductDTO.getQuantityType() != null) {
+            existingProduct.setQuantityType(updatedProductDTO.getQuantityType());
         }
-        if (updatedProductDTO.category() != null) {
-            existingProduct.setCategory(updatedProductDTO.category());
+        if (updatedProductDTO.getCategory() != null) {
+            existingProduct.setCategory(updatedProductDTO.getCategory());
         }
 
         existingProduct.setLastTimeOfModified(LocalDateTime.now()); // It is defined at LocalDateTimeNow.
 
-        if (updatedProductDTO.deliveryNoteID() != null) {
-            existingProduct.setDeliveryNoteID(updatedProductDTO.deliveryNoteID());
+        if (updatedProductDTO.getDeliveryNoteID() != null) {
+            existingProduct.setDeliveryNoteID(updatedProductDTO.getDeliveryNoteID());
         }
-        if (updatedProductDTO.placeOfStorage() != null) {
-            existingProduct.setPlaceOfStorage(updatedProductDTO.placeOfStorage());
+        if (updatedProductDTO.getPlaceOfStorage() != null) {
+            existingProduct.setPlaceOfStorage(updatedProductDTO.getPlaceOfStorage());
         }
-        if (updatedProductDTO.roomPlanCode() != null) {
-            existingProduct.setRoomPlanCode(updatedProductDTO.roomPlanCode());
+        if (updatedProductDTO.getDeliveryNoteID() != null) {
+            existingProduct.setRoomPlanCode(updatedProductDTO.getRoomPlanCode());
         }
-        if (updatedProductDTO.deliveryType() != null) {
-            existingProduct.setDeliveryType(updatedProductDTO.deliveryType());
+        if (updatedProductDTO.getDeliveryType() != null) {
+            existingProduct.setDeliveryType(updatedProductDTO.getDeliveryType());
         }
-        if (updatedProductDTO.roomNameOfInstallation() != null) {
-            existingProduct.setRoomNameOfInstallation(updatedProductDTO.roomNameOfInstallation());
+        if (updatedProductDTO.getRoomNameOfInstallation() != null) {
+            existingProduct.setRoomNameOfInstallation(updatedProductDTO.getRoomNameOfInstallation());
         }
-        if (updatedProductDTO.timeOfInstalled() != null) {
-            existingProduct.setTimeOfInstalled(updatedProductDTO.timeOfInstalled());
+        if (updatedProductDTO.getTimeOfInstalled() != null) {
+            existingProduct.setTimeOfInstalled(updatedProductDTO.getTimeOfInstalled());
         }
-        if (updatedProductDTO.timeOfArrivedAtSite() != null) {
-            existingProduct.setTimeOfArrivedAtSite(updatedProductDTO.timeOfArrivedAtSite());
+        if (updatedProductDTO.getTimeOfArrivedAtSite() != null) {
+            existingProduct.setTimeOfArrivedAtSite(updatedProductDTO.getTimeOfArrivedAtSite());
         }
-        if (updatedProductDTO.timeOfOrder() != null) {
-            existingProduct.setTimeOfOrder(updatedProductDTO.timeOfOrder());
+        if (updatedProductDTO.getTimeOfOrder() != null) {
+            existingProduct.setTimeOfOrder(updatedProductDTO.getTimeOfOrder());
         }
         // TODO: replace static conditions with EntityMapper
 

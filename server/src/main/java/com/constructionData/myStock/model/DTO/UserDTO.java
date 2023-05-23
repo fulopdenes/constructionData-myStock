@@ -1,10 +1,15 @@
 package com.constructionData.myStock.model.DTO;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-public record UserDTO(String username, String password, String email) {
-    @Builder
-    public UserDTO {
-    }
+@Getter
+@Setter
+@Builder
+public class UserDTO {
+    private String username;
+    private String password;
+    private String email;
 }
 
