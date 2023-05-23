@@ -14,7 +14,7 @@ const Register = () => {
 
     const handleSubmit = async () => {
         console.log(user)
-        const res = await fetch(`/users/`, {
+        const res = await fetch(`/api/users/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

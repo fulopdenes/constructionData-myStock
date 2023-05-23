@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
 
 const createProduct = (product) => {
-    return fetch(`/products/new`, {
+    return fetch(`/api/products/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

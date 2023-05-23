@@ -25,7 +25,7 @@ const useFakeMutation = () => {
 };
 
 const deleteProduct = (id) => {
-    return fetch(`/products/delete/${id}`, {
+    return fetch(`/api/products/delete/${id}`, {
         method: 'DELETE'
     }).then(() => {
         // console.log('removed');
