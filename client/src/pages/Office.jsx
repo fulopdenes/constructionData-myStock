@@ -35,7 +35,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`http://localhost:8080/products/all`, {signal}).then((res) => res.json());
+    return fetch(`/products/all`, {signal}).then((res) => res.json());
 };
 
 const Office = () => {
