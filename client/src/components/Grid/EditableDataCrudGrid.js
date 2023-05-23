@@ -181,7 +181,7 @@ const EditableDataCrudGrid = ({products}) => {
         async (newRow) => {
             // Make the HTTP request to save in the backend
             const updatedProduct = await mutateRow(newRow);
-            const res = await fetch(`http://localhost:8080/products/update/${updatedProduct.id}`, {
+            const res = await fetch(`/api/products/update/${updatedProduct.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

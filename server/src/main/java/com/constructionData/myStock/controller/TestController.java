@@ -1,6 +1,5 @@
 package com.constructionData.myStock.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@CrossOrigin(origins = {"http://192.168.0.17:3000", "http://localhost:3000"})
 public class TestController {
 
-    @GetMapping("/")
+    @GetMapping("/api/")
     public String statusCheck() {
         return "Working...";
     }

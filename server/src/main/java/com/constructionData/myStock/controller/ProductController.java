@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 //@CrossOrigin(origins = {"http://192.168.0.17:3000", "http://localhost:3000"})
-@RequestMapping("products")
+@RequestMapping("/api/products")
 public class ProductController {
     private final ProductService productService;
     @Autowired
