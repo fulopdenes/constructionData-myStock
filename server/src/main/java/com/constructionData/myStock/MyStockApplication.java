@@ -20,15 +20,15 @@ public class MyStockApplication {
 
     }
 
-//    @Configuration
-//    public static class WebConfig implements WebMvcConfigurer {
-//        @Override
-//        public void addCorsMappings(CorsRegistry registry) {
-//            registry.addMapping("/**")
-//                    .allowedOrigins("*")
-//                    .allowedMethods("GET", "POST", "PUT", "DELETE");
-//        }
-//    }
+    @Configuration
+    public static class WebConfig implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**")
+                    .allowedOrigins("*")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE");
+        }
+    }
 
 
     @Bean
