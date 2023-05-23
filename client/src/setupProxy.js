@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const proxy = {
-    target: 'https://mystock-backend.onrender.com',
+    target: 'http://localhost:8080',
     changeOrigin: true
 }
 
