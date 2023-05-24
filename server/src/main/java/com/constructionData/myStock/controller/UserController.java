@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@CrossOrigin(origins = {"http://192.168.0.17:3000", "http://localhost:3000"})
 @RequestMapping("/api/users")
 public class UserController {
 
