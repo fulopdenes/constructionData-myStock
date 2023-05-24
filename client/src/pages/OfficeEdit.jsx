@@ -34,7 +34,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${process.env.API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
 const OfficeEdit = () => {

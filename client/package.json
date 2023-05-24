@@ -31,6 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://mystock-backend.onrender.com",
   "eslintConfig": {
     "extends": [
       "react-app",

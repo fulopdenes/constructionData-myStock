@@ -12,7 +12,7 @@ import CircularIndeterminateLoading from "./Loading/CircularIndeterminateLoading
 import BasicProductCard from "./BasicProductCard";
 
 const fetchProducts = (signal) => {
-    return fetch(`/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${process.env.API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
 export default function SearchBarAndValueHandler() {
