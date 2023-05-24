@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material"
 import {useNavigate} from "react-router-dom";
 
-const { API_URL } = process.env;
-
 const Register = () => {
     const [user, setUser] = useState({username:"",password:"", email:""});
     const navigator = useNavigate();
@@ -16,7 +14,7 @@ const Register = () => {
 
     const handleSubmit = async () => {
         console.log(user)
-        const res = await fetch(`${API_URL}/api/users/`, {
+        const res = await fetch(`https://mystock-backend.onrender.com/api/users/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

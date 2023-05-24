@@ -8,8 +8,6 @@ import CancelIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 
-const { API_URL } = process.env;
-
 const useFakeMutation = () => {
     return React.useCallback(
         (product) =>
@@ -27,7 +25,7 @@ const useFakeMutation = () => {
 };
 
 const deleteProduct = (id) => {
-    return fetch(`${API_URL}/api/products/delete/${id}`, {
+    return fetch(`https://mystock-backend.onrender.com/api/products/delete/${id}`, {
         method: 'DELETE'
     }).then(() => {
         // console.log('removed');

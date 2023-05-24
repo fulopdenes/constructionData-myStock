@@ -9,8 +9,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import CircularIndeterminateLoading from "../components/Loading/CircularIndeterminateLoading";
 import {Link} from "react-router-dom";
 
-const { API_URL } = process.env;
-
 const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
     position: 'absolute',
     '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
@@ -36,7 +34,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`${API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`https://mystock-backend.onrender.com/api/products/all`, {signal}).then((res) => res.json());
 };
 
 const Office = () => {

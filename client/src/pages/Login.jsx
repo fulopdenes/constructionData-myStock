@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material"
 
-const { API_URL } = process.env;
 
 const Login = () => {
     const [user, setUser] = useState({email:"",password:""});
@@ -13,7 +12,7 @@ const Login = () => {
     }
 
     const handleSubmit = async () => {
-        const res = await fetch(`${API_URL}/api/users/`, {
+        const res = await fetch(`https://mystock-backend.onrender.com/api/users/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

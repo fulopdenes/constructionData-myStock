@@ -7,9 +7,8 @@ import SaveIcon from "@mui/icons-material/Save";
 import {useNavigate} from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const { API_URL } = process.env;
 const createProduct = (product) => {
-    return fetch(`${API_URL}/api/products/new`, {
+    return fetch(`https://mystock-backend.onrender.com/api/products/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

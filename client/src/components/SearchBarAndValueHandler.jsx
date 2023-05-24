@@ -10,10 +10,8 @@ import {Card} from "@mui/material";
 import {useEffect, useState} from "react";
 import CircularIndeterminateLoading from "./Loading/CircularIndeterminateLoading";
 import BasicProductCard from "./BasicProductCard";
-
-const { API_URL } = process.env;
 const fetchProducts = (signal) => {
-    return fetch(`${API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`https://mystock-backend.onrender.com/api/products/all`, {signal}).then((res) => res.json());
 };
 
 export default function SearchBarAndValueHandler() {
