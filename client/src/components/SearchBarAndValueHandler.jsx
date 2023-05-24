@@ -11,8 +11,9 @@ import {useEffect, useState} from "react";
 import CircularIndeterminateLoading from "./Loading/CircularIndeterminateLoading";
 import BasicProductCard from "./BasicProductCard";
 
+const { API_URL } = process.env;
 const fetchProducts = (signal) => {
-    return fetch(`${process.env.API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
 export default function SearchBarAndValueHandler() {

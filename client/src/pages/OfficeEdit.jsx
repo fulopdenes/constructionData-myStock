@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import EditableDataCrudGrid from "../components/Grid/EditableDataCrudGrid";
 
+const { API_URL } = process.env;
 
 const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
     position: 'absolute',
@@ -34,7 +35,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`${process.env.API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
 const OfficeEdit = () => {
