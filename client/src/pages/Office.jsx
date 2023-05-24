@@ -6,7 +6,6 @@ import {styled} from "@mui/material/styles";
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import EditIcon from '@mui/icons-material/Edit';
-
 import CircularIndeterminateLoading from "../components/Loading/CircularIndeterminateLoading";
 import {Link} from "react-router-dom";
 
