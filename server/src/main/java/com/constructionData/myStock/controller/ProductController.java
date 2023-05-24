@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "https://mystock-backend.onrender.com")
 @RequestMapping("/api/products")
 public class ProductController {
     private final ProductService productService;
