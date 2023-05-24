@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "https://mystock-frontend.onrender.com")
+@CrossOrigin()
 @RequestMapping("/api/users")
 public class UserController {
 
