@@ -16,12 +16,12 @@ const App = () => {
                     sx={{p: 0, mt: 9}}
                 >
                     <Routes>
-                        <Route path={"/"} element={<Office/>}/>
-                        <Route path={"/edit"} element={<OfficeEdit/>}/>
+                        <Route path={"https://mystock-frontend.onrender.com/"} element={<Office/>}/>
+                        <Route path={"https://mystock-frontend.onrender.com/edit"} element={<OfficeEdit/>}/>
                         {/*<Route path={"/login"} element={<Login/>}/>*/}
                         {/*<Route path={"/register"} element={<Register/>}/>*/}
-                        <Route path={"/new"} element={<AddNewElement/>}/>
-                        <Route path={"/onsite"} element={<OnSite/>}/>
+                        <Route path={"https://mystock-frontend.onrender.com/new"} element={<AddNewElement/>}/>
+                        <Route path={"https://mystock-frontend.onrender.com/onsite"} element={<OnSite/>}/>
                     </Routes>
                 </Container>
             </BrowserRouter>
