@@ -7,6 +7,8 @@ This web-based program is very similar to the traditional Excel program. The adv
 
 ++info:
 react + java
+kép az applikációból
+bővebb description - saját motiváció - miért - fejlesztési terv - mik lesznek - mik vannak eddig - milyen verziókat használok alaposabban - update setup part - 
 
 
 ## 2. Setup:
