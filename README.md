@@ -5,6 +5,10 @@ https://mystock-frontend.onrender.com/
 ## 1. Description:
 This web-based program is very similar to the traditional Excel program. The advantage of the program is that the data can be read even with a device with a small screen. The program supports the daily work of construction industry operators by automatically synchronizing data.
 
+++info:
+react + java
+
+
 ## 2. Setup:
 1. Clone or Fork the project.
 2. Go to client folder and run `npm i` command.
