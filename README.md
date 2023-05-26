@@ -1,6 +1,6 @@
 # ConstructionData-MyStock
 
-https://mystock-frontend.onrender.com/ - !!! it doesn't load in the first two minutes, but after 2 minutes the page has to be refreshed. !!!
+https://mystock-frontend.onrender.com/ - !!! it doesn't load in the first two and half minutes. Please refresh the page after 2:30 minutes. !!!
 
 ## 1. Description:
 This web-based program is very similar to the traditional Excel program. The advantage of the program is that the data can be read even with a device with a small screen. The program supports the daily work of construction industry operators by automatically synchronizing data.
