@@ -1,15 +1,9 @@
 # ConstructionData-MyStock
 
-https://mystock-frontend.onrender.com/
+https://mystock-frontend.onrender.com/ - !!! it doesn't load in the first two minutes, but after 2 minutes the page has to be refreshed. !!!
 
 ## 1. Description:
 This web-based program is very similar to the traditional Excel program. The advantage of the program is that the data can be read even with a device with a small screen. The program supports the daily work of construction industry operators by automatically synchronizing data.
-
-++info:
-react + java
-kép az applikációból
-bővebb description - saját motiváció - miért - fejlesztési terv - mik lesznek - mik vannak eddig - milyen verziókat használok alaposabban - update setup part - 
-
 
 ## 2. Setup:
 1. Clone or Fork the project.
