@@ -34,7 +34,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`https://mystock-backend.onrender.com/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${process.env.REACT_APP_API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
 const Office = () => {
@@ -58,9 +58,16 @@ const Office = () => {
 
         return () => controller.abort();
     }, []);
+    console.log(process.env.REACT_APP_API_URL)
 
     if (isLoading) {
-        return <CircularIndeterminateLoading/>;
+        return (
+            <>
+                The server has been started. Please refresh this page after cca. 2:30 minutes.
+                <CircularIndeterminateLoading/>;
+                Thank you for your patience.
+            </>
+            )
     }
     return (
         <>

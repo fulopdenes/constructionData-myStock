@@ -14,7 +14,7 @@ const Register = () => {
 
     const handleSubmit = async () => {
         console.log(user)
-        const res = await fetch(`https://mystock-backend.onrender.com/api/users/`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

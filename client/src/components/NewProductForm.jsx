@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
 
 const createProduct = (product) => {
-    return fetch(`https://mystock-backend.onrender.com/api/products/new`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/api/products/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

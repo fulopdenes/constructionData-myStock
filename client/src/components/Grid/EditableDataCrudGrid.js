@@ -25,7 +25,7 @@ const useFakeMutation = () => {
 };
 
 const deleteProduct = (id) => {
-    return fetch(`https://mystock-backend.onrender.com/api/products/delete/${id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/pi/products/delete/${id}`, {
         method: 'DELETE'
     }).then(() => {
         // console.log('removed');
@@ -181,7 +181,7 @@ const EditableDataCrudGrid = ({products}) => {
         async (newRow) => {
             // Make the HTTP request to save in the backend
             const updatedProduct = await mutateRow(newRow);
-            const res = await fetch(`https://mystock-backend.onrender.com/api/products/update/${updatedProduct.id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/products/update/${updatedProduct.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
