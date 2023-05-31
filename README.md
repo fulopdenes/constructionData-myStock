@@ -3,8 +3,10 @@
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
 This software provides a common work platform of companies in the construction industry. It is 
-very similar to Excel program, but it optimized by construction conditions (ex.: small screens, slow internet, several 
-companies have access to one data etc). 
+very similar to Excel program, but it optimized by construction conditions, exemples:
+ * for small screens --> bigger icons and fonts;
+ * for slow internet --> precach data or offline mode;
+ * when several companies must have access to one data --> common database acces;
 
 Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
 experienced civil engineer and programmer, I find a solution to reduce this to 2 hours (11% efficiency). By using 
