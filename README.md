@@ -153,7 +153,6 @@ If you have any questions, suggestions, or feedback, please feel free to contact
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 * [MUI Services](https://mui.com/)
 * [Swagger IO Services](https://swagger.io/)
 * [Render.com Services](https://render.com/)
