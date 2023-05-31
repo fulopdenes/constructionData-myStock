@@ -3,7 +3,7 @@
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
 This software provides a common work platform of companies in the construction industry. It is 
-very similar to Excel program, but it optimized by construction conditions, exemples:
+very similar to Excel program, but it optimized by construction conditions, examples:
  * for small screens --> bigger icons and fonts;
  * for slow internet --> precach data or offline mode;
  * when several companies must have access to one data --> common database acces;
