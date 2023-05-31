@@ -92,6 +92,7 @@ For contribution:
 
 ## Screenshots
 In progress..
+<!-- milyen szerkezete van a projektnek.?  -->
 
 ## Used Technologies
 
