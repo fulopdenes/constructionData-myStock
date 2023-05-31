@@ -135,8 +135,11 @@ may include API references, user guides, or any other relevant documentation.
 
 ## Contributing
 Contributions are welcome! If you find any issues or want to enhance the project, feel free to submit a pull request.
+
 Modify the code and customize the application according to your specific requirements.
+
 Add new components, endpoints, or database models as needed to extend the application's functionality.
+
 Please ensure that your changes are well-documented and tested.
 
 ## License
