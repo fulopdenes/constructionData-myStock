@@ -1,4 +1,4 @@
-# MyStock
+# ConstructionData-MyStock
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
@@ -63,7 +63,7 @@ The technology and knowledge are available, it's just a matter of time how we ap
 ## Installation Guide & Getting Started
 
 1. Fork the repository.
-2. Navigate to the project directory: cd mystock
+2. Navigate to the project directory: cd constructionData-myStock
 3. Install dependencies for the backend:
    * Run cd backend to enter the backend directory.
    * Run mvn install to install the required Java dependencies. `npm install`
