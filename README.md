@@ -88,6 +88,9 @@ For contribution:
 11. Push to the branch: git push origin feature/your-feature
 12. Submit a pull request.
 
+## Screenshots
+In progress..
+
 ## Used Technologies
 
 This fullstack project was developed using the following technologies and frameworks:
