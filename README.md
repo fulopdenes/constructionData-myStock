@@ -4,8 +4,8 @@
 
 This software provides a common work platform of companies in the construction industry. It is 
 very similar to Excel program, but it optimized by construction conditions, examples:
- * for small screens --> bigger icons and fonts;
- * for slow internet --> precach data or offline mode;
+ * for small screens --> bigger icons and fonts or just a relevant content shown;
+<!--  * for slow internet --> precach data or offline mode; -->
  * when several companies must have access to one data --> common database acces;
 
 Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
