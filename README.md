@@ -6,7 +6,7 @@ This software provides a common work platform of companies in the construction i
 very similar to Excel program, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
 <!--  * for slow internet -> precach data or offline mode; -->
- * when several companies must have access to one data -> common database acces;
+ * when several companies must have access to one data -> common database access;
 
 Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
 experienced civil engineer and programmer, I find a solution to reduce this to 2 hours (11% efficiency). By using 
