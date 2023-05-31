@@ -63,12 +63,12 @@ The technology and knowledge are available, it's just a matter of time how we ap
 ## Installation Guide & Getting Started
 
 1. Fork the repository.
-2. Navigate to the project directory: cd mystock
+2. Navigate to the project directory: `cd mystock`
 3. Install dependencies for the backend:
-   * Run cd backend to enter the backend directory.
+   * Run `cd server` to enter the backend directory.
    * Run mvn install to install the required Java dependencies. `npm install`
 4. Install dependencies for the frontend:
-   * Run cd frontend to enter the frontend directory.
+   * Run `cd client` to enter the frontend directory.
    * Run npm install to install the required dependencies. `npm install`
 5. Database setup:
    * Make sure you have PostgreSQL installed and running.
