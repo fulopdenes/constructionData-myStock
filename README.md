@@ -3,13 +3,13 @@
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
 This software provides a common work platform of companies in the construction industry. It is 
-very similar to Excel program, but it optimized by construction conditions (small screens, slow internet, several 
-companies have access to one data). 
+very similar to Excel program, but it optimized by construction conditions (ex.: small screens, slow internet, several 
+companies have access to one data etc). 
 
-The construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
+Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
 experienced civil engineer and programmer, I find a solution to reduce this to 2 hours (11% efficiency). By using 
-this software, data can be recorded quickly. The platform is available form office, construction 
-site, or from the warehouse. 
+this software, data can be recorded quickly. The platform will be available form office, construction 
+site, or from the warehouse also. 
 
 The application provides a user-friendly interface for interacting with the backend services and performing various
 actions.
@@ -26,7 +26,39 @@ This software can be used at the following cases:
 
 The technology and knowledge are available, it's just a matter of time how we apply digital opportunities in the construction industry. I am part of this transformation.
 
-## Installation Guide & Getting Started:
+## Features
+1. Data CRUD Operations
+2. Search Functionality
+3. Data Validation and Error Handling
+4. Data Filtering and Sorting
+5. Responsive Design
+6. Data Export
+
+#### Planned future functions:
+
+7. Online/Offline caching data management
+8. User Registration and Authentication 
+9. User Profiles 
+10. File Upload and Management 
+11. Role-based Access Control 
+12. Analytics and Reporting 
+13. User Activity Logs 
+14. Data Export - Excel, Pdf, Docx 
+15. Intelligent Search Suggestions 
+16. Activity Feeds 
+17. Data Privacy and GDPR Compliance 
+18. Geolocation Services 
+19. Password Reset 
+20. Email Notifications 
+21. Localization and Internationalization 
+22. Multi-language Support 
+23. Automated Backup and Restore 
+24. Ticketing System 
+25. Caching and Performance Optimization 
+26. Automated Testing 
+27. Multi-factor Authentication
+
+## Installation Guide & Getting Started
 
 1. Fork the repository.
 2. Navigate to the project directory: cd mystock
@@ -60,7 +92,7 @@ For contribution:
 
 This fullstack project was developed using the following technologies and frameworks:
 
-### Backend:
+#### Backend:
 
 * **Programming Language**: Java 17
 * **Framework**: Spring Boot 3.1.0
@@ -71,7 +103,7 @@ This fullstack project was developed using the following technologies and framew
 * **Testing**: -----. _(not implemented yet, planned to be JUnit, Mockito)_
 * **Deployment**: Docker, Render.com (Render.com - Web Services)
 
-### Frontend:
+#### Frontend:
 
 * **Framework/Library:**  React
 * **JavaScript Version**: JavaScript ES6+
@@ -92,54 +124,16 @@ Configure the database connection settings by modifying the following properties
 * spring.datasource.username: [Database username]
 * spring.datasource.password: [Database password] 
 
-## Usage Examples:
+## Usage Examples
 
 Will be code snippets, examples, or screenshots. Demonstrate different features and functionalities, and explain how they work.
 
-## Features
-1. Data CRUD Operations
-2. Search Functionality
-3. Data Validation and Error Handling
-4. Data Filtering and Sorting
-5. Responsive Design
-6. Data Export
-
-Planned future functions:
-
-7. Online/Offline caching data management
-8. User Registration and Authentication 
-9. User Profiles 
-10. File Upload and Management 
-11. Role-based Access Control 
-12. Analytics and Reporting 
-13. User Activity Logs 
-14. Data Export - Excel, Pdf, Docx 
-15. Intelligent Search Suggestions 
-16. Activity Feeds 
-17. Data Privacy and GDPR Compliance 
-18. Geolocation Services 
-19. Password Reset 
-20. Email Notifications 
-21. Localization and Internationalization 
-22. Multi-language Support 
-23. Automated Backup and Restore 
-24. Ticketing System 
-25. Caching and Performance Optimization 
-26. Automated Testing 
-27. Multi-factor Authentication
-
-## Documentation:
-
-Link to or include documentation that provides comprehensive information about your project. This
-may include API references, user guides, or any other relevant documentation.
-
+## Documentation
+In progress.
 ## Contributing
 Contributions are welcome! If you find any issues or want to enhance the project, feel free to submit a pull request.
-
 Modify the code and customize the application according to your specific requirements.
-
 Add new components, endpoints, or database models as needed to extend the application's functionality.
-
 Please ensure that your changes are well-documented and tested.
 
 ## License
@@ -147,7 +141,7 @@ This project is licensed under the MIT License.
 See the LICENSE file for more details.
 MIT © Fülöp Dénes
 
-## Contact Information:
+## Contact Information
 
 If you have any questions, suggestions, or feedback, please feel free to contact me at denes.fulopp@gmail.com.
 
