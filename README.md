@@ -1,11 +1,11 @@
-# MyStock
+# ConstructionData-MyStock
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
 This software provides a common work platform of companies in the construction industry. It is 
 very similar to Excel program, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
-<!--  * for slow internet -> precach data or offline mode; -->
+<!--  * for slow internet -> precache data or offline mode; -->
  * when several companies must have access to one data -> common database access;
 
 Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
@@ -63,7 +63,7 @@ The technology and knowledge are available, it's just a matter of time how we ap
 ## Installation Guide & Getting Started
 
 1. Fork the repository.
-2. Navigate to the project directory: `cd mystock`
+2. Navigate to the project directory: cd constructionData-myStock
 3. Install dependencies for the backend:
    * Run `cd server` to enter the backend directory.
    * Run mvn install to install the required Java dependencies. `npm install`
@@ -153,7 +153,6 @@ If you have any questions, suggestions, or feedback, please feel free to contact
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 * [MUI Services](https://mui.com/)
 * [Swagger IO Services](https://swagger.io/)
 * [Render.com Services](https://render.com/)
