@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 # ConstructionData-MyStock
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
@@ -60,6 +62,8 @@ The technology and knowledge are available, it's just a matter of time how we ap
 26. Automated Testing 
 27. Multi-factor Authentication
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Installation Guide & Getting Started
 
 1. Fork the repository.
@@ -90,15 +94,23 @@ For contribution:
 11. Push to the branch: git push origin feature/your-feature
 12. Submit a pull request.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Roadmap
 
 - [x] Step 1
 - [x] Step 2
 - [ ] Step 3
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Screenshots
 In progress..
 <!-- milyen szerkezete van a projektnek.?  -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Used Technologies
 
@@ -128,6 +140,9 @@ This fullstack project was developed using the following technologies and framew
 * **Build/Bundle**: ----.  _(not implemented yet, planned to be Webpack)_
 * **Deployment**: Docker, Render.com (Render.com - Static Site)
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Configuration
 Open the application.properties file located in [path/to/application.properties].
 
@@ -135,6 +150,8 @@ Configure the database connection settings by modifying the following properties
 * spring.datasource.url: [Database URL]
 * spring.datasource.username: [Database username]
 * spring.datasource.password: [Database password] 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage Examples
 
@@ -148,17 +165,29 @@ Modify the code and customize the application according to your specific require
 Add new components, endpoints, or database models as needed to extend the application's functionality.
 Please ensure that your changes are well-documented and tested.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## License
 This project is licensed under the MIT License.
 See the LICENSE file for more details.
 MIT © Fülöp Dénes
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ## Contact Information
 
 If you have any questions, suggestions, or feedback, please feel free to contact me at denes.fulopp@gmail.com.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Acknowledgments
 
 * [MUI Services](https://mui.com/)
 * [Swagger IO Services](https://swagger.io/)
 * [Render.com Services](https://render.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
