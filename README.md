@@ -105,6 +105,7 @@ Will be code snippets, examples, or screenshots. Demonstrate different features 
 6. Data Export
 
 Planned future functions:
+
 7. Online/Offline caching data management
 8. User Registration and Authentication 
 9. User Profiles 
@@ -152,5 +153,4 @@ If you have any questions, suggestions, or feedback, please feel free to contact
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 * [MUI Services](https://mui.com/)
 * [Swagger IO Services](https://swagger.io/)
-* [Render.com Services](https://render.com/)
 * [Render.com Services](https://render.com/)
