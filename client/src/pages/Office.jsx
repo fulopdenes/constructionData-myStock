@@ -63,9 +63,7 @@ const Office = () => {
     if (isLoading) {
         return (
             <>
-                The server has been started. Please refresh this page after cca. 2:30 minutes.
                 <CircularIndeterminateLoading/>;
-                Thank you for your patience.
             </>
             )
     }
