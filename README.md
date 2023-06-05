@@ -4,8 +4,7 @@
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
-This software provides a common work platform of companies in the construction industry. It is 
-very similar to Excel program, but it optimized by construction conditions, examples:
+This software provides a common work platform of companies in the construction industry. This program is very similar to Excel, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
 <!--  * for slow internet -> precache data or offline mode; -->
  * when several companies must have access to one data -> common database access;
