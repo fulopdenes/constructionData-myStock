@@ -4,12 +4,12 @@
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
-You can reach the public site at the following link: https://mystock-frontend.onrender.com ! The server works through a free service provider, so it does not run permanently. After the first request, it starts and you need to wait approximately 150 ms.
-
 This software provides a common work platform of companies in the construction industry. This program is very similar to Excel, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
 <!--  * for slow internet -> precache data or offline mode; -->
  * when several companies must have access to one data -> common database access;
+
+The server works through a free service provider, so it does not run permanently. After the first request, it starts and you need to wait approximately 150 ms. -> https://mystock-frontend.onrender.com !
 
 Usually the construction stakeholders spend cca. 3 hours (38%) of their work time with administration . As an 
 experienced civil engineer and programmer, I find a solution to reduce this to 2 hours (11% efficiency). By using 
