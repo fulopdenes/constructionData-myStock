@@ -63,7 +63,7 @@ const Office = () => {
     if (isLoading) {
         return (
             <>
-                <CircularIndeterminateLoading/>;
+                <CircularIndeterminateLoading/>
             </>
             )
     }
