@@ -99,14 +99,64 @@ For contribution:
 
 ## Roadmap
 
-- [x] Step 1
-- [x] Step 2
-- [ ] Step 3
+- [x] Define purpose of this project. 
+
+#### Frontend:
+- [x] Implement navbar with react.
+- [x] Set responsive parameters.
+- [x] Create view mode at office page.
+- [x] Create edit mode at office page.
+- [x] Implement scroll bar with feature icons.
+- [x] Setup proxy parameters and env. variables.
+- [x] Deploy frontend part of the project with link. 
+- [ ] Create login page.
+- [ ] Test input fields with possible bad and good scenarios.
+- [ ] Create profile section with user data edit features.
+- [ ] Implement profile icon at navbar.
+- [ ] Develop password reset option with email confirmation.
+- [ ] Create a register page with user profile options.
+- [ ] Create page with user activities.
+- [ ] Add user names at tables for any new activity.
+- [ ] Add notification handlers for buttons.
+- [ ] Create scan file page.
+- [ ] Add data export feature with pdf and docs file extensions.
+- [ ] Implement autocomplete option for searchbar.
+- [ ] Add Hungarian language for the project.
+- [ ] Add language change possibilite option for profile section.
+- [ ] Add multi-factor authentication option to registration page.
+- [ ] Add backup option for administration user.
+- [ ] Add notifications for related pages when program works offline.
+- [ ] Create separate page for creating report.
+
+#### Backend:
+- [x] Define product model.
+- [x] Create connection with database.
+- [x] Define endpoints & test.
+- [x] Deploy backend part of the project with link. 
+- [ ] Test endpoints with possible scenarios.
+- [ ] Implement security and authentication with token based solution.
+- [ ] Implement user roles.
+- [ ] Implement role-based access control.
+- [ ] Test autentication process.
+- [ ] Implement password reset endpoint.
+- [ ] Create database for tracking user activites.
+- [ ] Set hours based on locations.
+- [ ] Implement GDPR settings.
+- [ ] Create email notification services.
+- [ ] Create scan file service.
+- [ ] Implement automated test setup before production stage.
+- [ ] Set multi-factor authentication service.
+- [ ] Add restore and backup option for server side.
+- [ ] Implement caching option for offline period.
+- [ ] Implement report services.
+- [ ] Add preload option for better performance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Screenshots
+
+
 In progress..
 <!-- milyen szerkezete van a projektnek.?  -->
 
