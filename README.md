@@ -4,6 +4,30 @@
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#description">Description</a>
+    </li>
+    <li>
+      <a href="#motivation">Motivation</a>
+    </li>
+    <li><a href="#features">Features</a>
+    <li><a href="#installation-guide--getting-started">Installation Guide & Getting Started</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#used-technologies">Used technologies</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+     <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+## Description
+
 This software provides a common work platform of companies in the construction industry. This program is very similar to Excel, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
 <!--  * for slow internet -> precache data or offline mode; -->
@@ -27,9 +51,13 @@ This software can be used at the following cases:
 4. Product status questions.
 5. Handover products.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Motivation
 
 The technology and knowledge are available, it's just a matter of time how we apply digital opportunities in the construction industry. I am part of this transformation.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
 1. Data CRUD Operations
@@ -220,7 +248,7 @@ MIT © Fülöp Dénes
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Contact Information
+## Contact
 
 If you have any questions, suggestions, or feedback, please feel free to contact me at denes.fulopp@gmail.com.
 
