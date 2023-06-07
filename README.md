@@ -61,11 +61,10 @@ The technology and knowledge are available, it's just a matter of time how we ap
 
 ## Features
 1. Data CRUD Operations
-2. Search Functionality
-3. Data Validation and Error Handling
-4. Data Filtering and Sorting
-5. Responsive Design
-6. Data Export
+2. Data Validation and Error Handling
+3. Data Filtering and Sorting
+4. Responsive Design
+5. Data Export
 
 #### Planned future functions:
 
@@ -184,9 +183,35 @@ For contribution:
 
 ## Screenshots
 
+1. Data CRUD Operations
 
-In progress..
-<!-- milyen szerkezete van a projektnek.?  -->
+<p align="center" width="100%">
+    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+</p>
+
+2. Data Validation and Error Handling
+
+<p align="center" width="100%">
+    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+</p>
+
+3. Data Filtering and Sorting
+
+<p align="center" width="100%">
+    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+</p>
+
+4. Responsive Design
+
+<p align="center" width="100%">
+    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+</p>
+
+5. Data Export
+
+<p align="center" width="100%">
+    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
