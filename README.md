@@ -154,6 +154,7 @@ For contribution:
 - [ ] Add backup option for administration user.
 - [ ] Add notifications for related pages when program works offline.
 - [ ] Create separate page for creating report.
+- [ ] Create SCAN DOCUMENT handle page.
 
 #### Backend:
 - [x] Define product model.
@@ -177,6 +178,7 @@ For contribution:
 - [ ] Implement caching option for offline period.
 - [ ] Implement report services.
 - [ ] Add preload option for better performance.
+- [ ] Create service to handle scanned documents parameters.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,7 +206,7 @@ For contribution:
 4. Responsive Design
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/vLDyf2bPODy.jpg">
+    <img width="40%" src="https://i.kek.sh/vLDyf2bPODy.jpg">
 </p>
 
 5. Data Export
