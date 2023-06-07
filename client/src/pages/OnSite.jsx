@@ -7,7 +7,7 @@ const OnSite = () => {
 
     return (
         <>
-            <StorageLocationHandler/>
+            {/*<StorageLocationHandler/>*/}
             <SearchBarAndValueHandler/>
         </>
     )
