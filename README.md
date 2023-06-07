@@ -4,6 +4,30 @@
 [//]: # (Due to the free service, the server does not work permanently, so you have to wait 2 minutes and 30 seconds after )
 [//]: # (opening it for the first time. Public link: https://mystock-frontend.onrender.com/)
 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#description">Description</a>
+    </li>
+    <li>
+      <a href="#motivation">Motivation</a>
+    </li>
+    <li><a href="#features">Features</a>
+    <li><a href="#installation-guide--getting-started">Installation Guide & Getting Started</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#used-technologies">Used technologies</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+     <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+## Description
+
 This software provides a common work platform of companies in the construction industry. This program is very similar to Excel, but it optimized by construction conditions, examples:
  * for small screens -> bigger icons and fonts or just a relevant content shown;
 <!--  * for slow internet -> precache data or offline mode; -->
@@ -27,9 +51,13 @@ This software can be used at the following cases:
 4. Product status questions.
 5. Handover products.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Motivation
 
 The technology and knowledge are available, it's just a matter of time how we apply digital opportunities in the construction industry. I am part of this transformation.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
 1. Data CRUD Operations
@@ -99,14 +127,64 @@ For contribution:
 
 ## Roadmap
 
-- [x] Step 1
-- [x] Step 2
-- [ ] Step 3
+- [x] Define purpose of this project. 
+
+#### Frontend:
+- [x] Implement navbar with react.
+- [x] Set responsive parameters.
+- [x] Create view mode at office page.
+- [x] Create edit mode at office page.
+- [x] Implement scroll bar with feature icons.
+- [x] Setup proxy parameters and env. variables.
+- [x] Deploy frontend part of the project with link. 
+- [ ] Create login page.
+- [ ] Test input fields with possible bad and good scenarios.
+- [ ] Create profile section with user data edit features.
+- [ ] Implement profile icon at navbar.
+- [ ] Develop password reset option with email confirmation.
+- [ ] Create a register page with user profile options.
+- [ ] Create page with user activities.
+- [ ] Add user names at tables for any new activity.
+- [ ] Add notification handlers for buttons.
+- [ ] Create scan file page.
+- [ ] Add data export feature with pdf and docs file extensions.
+- [ ] Implement autocomplete option for searchbar.
+- [ ] Add Hungarian language for the project.
+- [ ] Add language change possibilite option for profile section.
+- [ ] Add multi-factor authentication option to registration page.
+- [ ] Add backup option for administration user.
+- [ ] Add notifications for related pages when program works offline.
+- [ ] Create separate page for creating report.
+
+#### Backend:
+- [x] Define product model.
+- [x] Create connection with database.
+- [x] Define endpoints & test.
+- [x] Deploy backend part of the project with link. 
+- [ ] Test endpoints with possible scenarios.
+- [ ] Implement security and authentication with token based solution.
+- [ ] Implement user roles.
+- [ ] Implement role-based access control.
+- [ ] Test autentication process.
+- [ ] Implement password reset endpoint.
+- [ ] Create database for tracking user activites.
+- [ ] Set hours based on locations.
+- [ ] Implement GDPR settings.
+- [ ] Create email notification services.
+- [ ] Create scan file service.
+- [ ] Implement automated test setup before production stage.
+- [ ] Set multi-factor authentication service.
+- [ ] Add restore and backup option for server side.
+- [ ] Implement caching option for offline period.
+- [ ] Implement report services.
+- [ ] Add preload option for better performance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Screenshots
+
+
 In progress..
 <!-- milyen szerkezete van a projektnek.?  -->
 
@@ -154,12 +232,6 @@ Configure the database connection settings by modifying the following properties
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Usage Examples
-
-Will be code snippets, examples, or screenshots. Demonstrate different features and functionalities, and explain how they work.
-
-## Documentation
-In progress.
 ## Contributing
 Contributions are welcome! If you find any issues or want to enhance the project, feel free to submit a pull request.
 Modify the code and customize the application according to your specific requirements.
@@ -167,7 +239,6 @@ Add new components, endpoints, or database models as needed to extend the applic
 Please ensure that your changes are well-documented and tested.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## License
 This project is licensed under the MIT License.
@@ -177,7 +248,7 @@ MIT © Fülöp Dénes
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Contact Information
+## Contact
 
 If you have any questions, suggestions, or feedback, please feel free to contact me at denes.fulopp@gmail.com.
 
