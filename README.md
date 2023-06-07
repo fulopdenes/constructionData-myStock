@@ -186,31 +186,31 @@ For contribution:
 1. Data CRUD Operations
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+    <img width="80%" src="https://i.kek.sh/v2TeCt2Udda.jpg">
 </p>
 
 2. Data Validation and Error Handling
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+    <img width="80%" src="https://i.kek.sh/AH4ZlRvhm1p.jpg">
 </p>
 
 3. Data Filtering and Sorting
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+    <img width="80%" src="https://i.kek.sh/HL52NPORsa7.jpg">
 </p>
 
 4. Responsive Design
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+    <img width="80%" src="https://i.kek.sh/vLDyf2bPODy.jpg">
 </p>
 
 5. Data Export
 
 <p align="center" width="100%">
-    <img width="80%" src="https://i.kek.sh/wWrmoyLRiRx.png">
+    <img width="80%" src="https://i.kek.sh/JnnYIv1dcJv.jpg">
 </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
