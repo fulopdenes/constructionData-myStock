@@ -154,12 +154,6 @@ Configure the database connection settings by modifying the following properties
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Usage Examples
-
-Will be code snippets, examples, or screenshots. Demonstrate different features and functionalities, and explain how they work.
-
-## Documentation
-In progress.
 ## Contributing
 Contributions are welcome! If you find any issues or want to enhance the project, feel free to submit a pull request.
 Modify the code and customize the application according to your specific requirements.
@@ -167,7 +161,6 @@ Add new components, endpoints, or database models as needed to extend the applic
 Please ensure that your changes are well-documented and tested.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## License
 This project is licensed under the MIT License.
