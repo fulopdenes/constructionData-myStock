@@ -58,7 +58,6 @@ const Office = () => {
 
         return () => controller.abort();
     }, []);
-    console.log(process.env.REACT_APP_API_URL)
 
     if (isLoading) {
         return (
