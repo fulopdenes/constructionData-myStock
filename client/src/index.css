@@ -16,4 +16,10 @@ code {
    box-sizing: border-box;
 }
 
+.HomePage {
+  padding: 50px;
+  text-align: center;
+  position: relative;
+}
+
 

@@ -24,7 +24,8 @@ const NavBar = () => {
                 <Box sx={{display: "flex", alignItems: "center", gap: 3}}>
                     {isNonMobileDevice ?
                         <>
-                            <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/"}>Office</Link></Button>
+                            <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/"}>Home</Link></Button>
+                            <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/office"}>Office</Link></Button>
                             <Button><Link style={{color: "#fff", textDecoration: "none"}} to={"/onsite"}>OnSite</Link></Button>
                             {/*<Button><Link style={{color: "#fff", textDecoration: "none"}}*/}
                             {/*              to={"/login"}>Login</Link></Button>*/}
@@ -54,7 +55,8 @@ const NavBar = () => {
                                 }}
                                 // TransitionComponent={Fade}
                             >
-                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/"}>Office</Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/"}>Home</Link></MenuItem>
+                                <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/office"}>Office</Link></MenuItem>
                                 <MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/onsite"}>OnSite</Link></MenuItem>
                                 {/*<MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/login"}>Login</Link></MenuItem>*/}
                                 {/*<MenuItem onClick={handleClose}><Link style={{color: "#333", textDecoration: "none"}} to={"/register"}>Register</Link></MenuItem>*/}

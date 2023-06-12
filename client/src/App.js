@@ -6,6 +6,7 @@ import AddNewElement from "./pages/AddNewElement";
 import Office from "./pages/Office";
 import OfficeEdit from "./pages/OfficeEdit";
 import OnSite from "./pages/OnSite";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
     return (
@@ -16,11 +17,12 @@ const App = () => {
                     sx={{p: 0, mt: 9}}
                 >
                     <Routes>
-                        <Route path={"/"} element={<Office/>}/>
+                        <Route path={"/"} element={<HomePage/>}/>
                         <Route path={"/edit"} element={<OfficeEdit/>}/>
                         {/*<Route path={"/login"} element={<Login/>}/>*/}
                         {/*<Route path={"/register"} element={<Register/>}/>*/}
                         <Route path={"/new"} element={<AddNewElement/>}/>
+                        <Route path={"/office"} element={<Office/>}/>
                         <Route path={"/onsite"} element={<OnSite/>}/>
                     </Routes>
                 </Container>
