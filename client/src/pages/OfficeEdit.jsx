@@ -27,7 +27,7 @@ const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
 const withLink = (to, children) => <Link to={to}>{children}</Link>;
 
 const actions = [
-    {icon: withLink("/", <NavigateBeforeIcon sx={{color: "#000"}}/>), name: 'View Mode'},
+    {icon: withLink("/office", <NavigateBeforeIcon sx={{color: "#000"}}/>), name: 'View Mode'},
     {icon: withLink("/new", <AddCircleOutlineRoundedIcon color="primary"/>), name: 'Add New Product'},
     {icon: <DocumentScannerIcon color="disabled"/>, name: 'Scan document'}
 ];
