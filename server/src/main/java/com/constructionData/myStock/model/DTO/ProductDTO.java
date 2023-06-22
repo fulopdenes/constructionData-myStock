@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 @Builder
 public class ProductDTO {
 
-    // TODO: test DTO parameters
-
     //Office-Define
     private String relatedUnit; // VII.001
     private String category; // parketta
@@ -23,8 +21,6 @@ public class ProductDTO {
     private String roomNameOfInstallation; // nappali
     private String roomPlanCode; //optional // N-05
 
-//        LocalDateTime timeOfRecord, // dateAndTime
-
     //Office-ordered
     private LocalDateTime timeOfOrder; // dateAndTime
 
@@ -35,8 +31,5 @@ public class ProductDTO {
 
     //Site-installed
     private LocalDateTime timeOfInstalled; // dateAndTime
-
-    //Server
-//         private LocalDateTime lastTimeOfModified; // dateAndTime
 }
 

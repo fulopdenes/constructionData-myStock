@@ -15,38 +15,75 @@ import java.util.Optional;
 @CrossOrigin()
 @RequestMapping("/api/products")
 public class ProductController {
+
     private final ProductService productService;
+
     @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    // TODO: write test of each endpoints with all kind of scenarios: or desired result or relevant httpResponse.
-
     @GetMapping("/all")
-    public List<Product> getAllProducts() {return productService.getAllProducts();}
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
+    }
 
     @GetMapping("/get/{id}")
     public ResponseEntity<Product> findProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
-        if (product.getId() != null) {
+        if (product != null) {
             return new ResponseEntity<>(product, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO newProduct) {
-        Product createdProduct = productService.createProduct(newProduct);
-        // TODO: if product parameters are not proper, then should inform the client what parameters are
-        //  missing or obligatory.
-        if (createdProduct != null) {
-            return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<?> createProduct(@RequestBody ProductDTO newProduct) {
+        if (newProduct == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
+        if (newProduct.getProductName() == null
+                || newProduct.getRelatedUnit() == null
+                || newProduct.getCategory() == null
+                || newProduct.getQuantityType() == null
+                || newProduct.getQuantity() == null
+                || newProduct.getProductTechCode() == null
+                || newProduct.getRoomNameOfInstallation() == null
+        ) {
+            String errorMessage = "The following parameters are missing or invalid: ";
+            if (newProduct.getProductName() == null) {
+                errorMessage += "ProductName ";
+            }
+
+            if (newProduct.getRelatedUnit() == null) {
+                errorMessage += "RelatedUnit ";
+            }
+
+            if (newProduct.getCategory() == null) {
+                errorMessage += "Category ";
+            }
+
+            if (newProduct.getQuantityType() == null) {
+                errorMessage += "QuantityType ";
+            }
+            if (newProduct.getQuantity() == null) {
+                errorMessage += "Quantity ";
+            }
+            if (newProduct.getProductTechCode() == null) {
+                errorMessage += "ProductTechCode ";
+            }
+            if (newProduct.getRoomNameOfInstallation() == null) {
+                errorMessage += "RoomNameOfInstallation ";
+            }
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        }
+
+        Product createdProduct = productService.createProduct(newProduct);
+        return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
+
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
@@ -61,15 +98,15 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        Product existingProduct = productService.getProductById(id);
-
-        if (existingProduct == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Boolean> deleteProduct(@PathVariable Long id) {
+        boolean isDeleted = productService.deleteProduct(id);
+        if (isDeleted) {
+            return new ResponseEntity<>(true, HttpStatus.OK);
         } else {
-            productService.deleteProduct(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
         }
     }
+
+
 
 }

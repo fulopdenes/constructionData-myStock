@@ -9,6 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -34,8 +35,15 @@ public class ProductService {
                         "."));
     }
 
-    public void deleteProduct(Long id) {
-        productRepository.deleteById(id);
+    public boolean deleteProduct(Long id) {
+        Optional<Product> product = productRepository.findById(id);
+        System.out.println(product.isPresent());
+        if (product.isPresent()) {
+            productRepository.deleteById(id);
+            return true; // Deletion successful
+        } else {
+            return false; // Deletion failed
+        }
     }
 
     public Product createProduct(ProductDTO newProduct) {
@@ -69,14 +77,14 @@ public class ProductService {
         if (updatedProductDTO.getProductName() != null) {
             existingProduct.setProductName(updatedProductDTO.getProductName());
         }
-        if (updatedProductDTO.getProductName() != null) {
-            existingProduct.setProductTechCode(updatedProductDTO.getProductTechCode());
-        }
-        if (updatedProductDTO.getProductName() != null) {
+        if (updatedProductDTO.getQuantity() != null) {
             existingProduct.setQuantity(updatedProductDTO.getQuantity());
         }
-        if (updatedProductDTO.getProductTechCode() != null) {
+        if (updatedProductDTO.getRelatedUnit() != null) {
             existingProduct.setRelatedUnit(updatedProductDTO.getRelatedUnit());
+        }
+        if (updatedProductDTO.getProductTechCode() != null) {
+            existingProduct.setRelatedUnit(updatedProductDTO.getProductTechCode());
         }
         if (updatedProductDTO.getQuantityType() != null) {
             existingProduct.setQuantityType(updatedProductDTO.getQuantityType());
@@ -85,15 +93,13 @@ public class ProductService {
             existingProduct.setCategory(updatedProductDTO.getCategory());
         }
 
-        existingProduct.setLastTimeOfModified(LocalDateTime.now()); // It is defined at LocalDateTimeNow.
-
         if (updatedProductDTO.getDeliveryNoteID() != null) {
             existingProduct.setDeliveryNoteID(updatedProductDTO.getDeliveryNoteID());
         }
         if (updatedProductDTO.getPlaceOfStorage() != null) {
             existingProduct.setPlaceOfStorage(updatedProductDTO.getPlaceOfStorage());
         }
-        if (updatedProductDTO.getDeliveryNoteID() != null) {
+        if (updatedProductDTO.getRoomPlanCode() != null) {
             existingProduct.setRoomPlanCode(updatedProductDTO.getRoomPlanCode());
         }
         if (updatedProductDTO.getDeliveryType() != null) {
@@ -112,6 +118,8 @@ public class ProductService {
             existingProduct.setTimeOfOrder(updatedProductDTO.getTimeOfOrder());
         }
         // TODO: replace static conditions with EntityMapper
+
+        existingProduct.setLastTimeOfModified(LocalDateTime.now()); // It is defined at LocalDateTimeNow.
 
         // Save the updated entity
         return productRepository.save(existingProduct);

@@ -5,8 +5,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-import static jakarta.persistence.GenerationType.SEQUENCE;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -54,4 +52,18 @@ public class Product {
 
     //Server
     private LocalDateTime lastTimeOfModified; // dateAndTime
+
+    public Product(Long id, String relatedUnit, String category, String productName, Double quantity, String quantityType, String productTechCode, String roomNameOfInstallation, String deliveryType, String roomPlanCode, LocalDateTime timeOfRecord) {
+        this.id = id;
+        this.relatedUnit = relatedUnit;
+        this.category = category;
+        this.productName = productName;
+        this.quantity = quantity;
+        this.quantityType = quantityType;
+        this.productTechCode = productTechCode;
+        this.roomNameOfInstallation = roomNameOfInstallation;
+        this.deliveryType = deliveryType;
+        this.roomPlanCode = roomPlanCode;
+        this.timeOfRecord = timeOfRecord;
+    }
 }
