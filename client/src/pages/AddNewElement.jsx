@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card} from "@mui/material"
 
-import NewProductForm from "../components/NewProductForm";
+import NewProductForm from "../components/form/NewProductForm";
 
 const AddNewElement = () => {
     return (

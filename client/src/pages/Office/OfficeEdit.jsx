@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Box, SpeedDial, SpeedDialIcon, Typography} from "@mui/material";
-import ViewDataGrid from "../components/Grid/ViewDataGrid";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import {styled} from "@mui/material/styles";
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import EditIcon from '@mui/icons-material/Edit';
-import CircularIndeterminateLoading from "../components/Loading/CircularIndeterminateLoading";
+import CircularIndeterminateLoading from "../../components/loading/CircularIndeterminateLoading";
 import {Link} from "react-router-dom";
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import EditableDataCrudGrid from "../../components/grid/EditableDataCrudGrid";
 
 const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
     position: 'absolute',
@@ -27,9 +27,8 @@ const StyledSpeedDial = styled(SpeedDial)(({theme}) => ({
 const withLink = (to, children) => <Link to={to}>{children}</Link>;
 
 const actions = [
-    {icon: withLink("/edit", <EditIcon sx={{color: "#000"}}/>), name: 'Edit Mode'},
-    // { icon: withLink("/delete", <DeleteIcon sx={{ color: red[500] }} />), name: 'Delete Element'},
-    {icon: withLink("/new", <AddCircleOutlineRoundedIcon color="primary"/>), name: 'Add new element'},
+    {icon: withLink("/office", <NavigateBeforeIcon sx={{color: "#000"}}/>), name: 'View Mode'},
+    {icon: withLink("/new", <AddCircleOutlineRoundedIcon color="primary"/>), name: 'Add New Product'},
     {icon: <DocumentScannerIcon color="disabled"/>, name: 'Scan document'}
 ];
 
@@ -37,8 +36,8 @@ const fetchProducts = (signal) => {
     return fetch(`${process.env.REACT_APP_API_URL}/api/products/all`, {signal}).then((res) => res.json());
 };
 
-const Office = () => {
-    const [isLoading, setIsLoading] = useState(true);
+const OfficeEdit = () => {
+    let [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -60,20 +59,15 @@ const Office = () => {
     }, []);
 
     if (isLoading) {
-        return (
-            <>
-                <CircularIndeterminateLoading/>
-            </>
-            )
+        return <CircularIndeterminateLoading/>;
     }
     return (
         <>
             <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
-                VIEW MODE
+                EDIT MODE
             </Typography>
-            <ViewDataGrid products={data}/>
+            <EditableDataCrudGrid products={data} setData={setData}/>
             <Box sx={{position: 'relative', mt: 0, height: 80}}>
-
                 <StyledSpeedDial
                     ariaLabel="SpeedDial playground example"
                     icon={<SpeedDialIcon/>}
@@ -88,8 +82,9 @@ const Office = () => {
                     ))}
                 </StyledSpeedDial>
             </Box>
+
         </>
     )
 }
 
-export default Office;
+export default OfficeEdit;

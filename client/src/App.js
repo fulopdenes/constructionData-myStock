@@ -3,10 +3,10 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import {Container} from "@mui/material";
 import AddNewElement from "./pages/AddNewElement";
-import Office from "./pages/Office";
-import OfficeEdit from "./pages/OfficeEdit";
-import OnSite from "./pages/OnSite";
-import HomePage from "./pages/HomePage";
+import Office from "./pages/Office/Office";
+import OfficeEdit from "./pages/Office/OfficeEdit";
+import OnSite from "./pages/Onsite/OnSite";
+import HomePage from "./pages/Home/HomePage";
 
 const App = () => {
     return (

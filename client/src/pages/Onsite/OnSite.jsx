@@ -1,7 +1,7 @@
 import React from 'react';
-import StorageLocationHandler from "../components/StorageLocationHandler";
+import StorageLocationHandler from "./StorageLocationHandler";
 
-import SearchBarAndValueHandler from "../components/SearchBarAndValueHandler";
+import SearchBarAndValueHandler from "./SearchBarAndValueHandler";
 
 const OnSite = () => {
 
