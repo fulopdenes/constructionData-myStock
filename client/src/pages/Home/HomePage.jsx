@@ -10,6 +10,9 @@ const HomePage = () => {
                 minutes and 30 sec)</b>, then refresh the current page.
             </div>
             <p></p>
+            <div>
+               So, please click at the OFFICE page (you will see the blue circle loading symbol) and wait cca. 150 seconds then please refresh the page.
+            </div>
             <p></p>
             Copyright © Fülöp Dénes 2023
         </div>
