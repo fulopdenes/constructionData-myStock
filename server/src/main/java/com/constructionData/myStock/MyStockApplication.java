@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class MyStockApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyStockApplication.class, args);
-
     }
 
     //TODO: dataGeneration should be better organized separate.
@@ -109,4 +108,5 @@ public class MyStockApplication {
     }
 
 }
+
 
