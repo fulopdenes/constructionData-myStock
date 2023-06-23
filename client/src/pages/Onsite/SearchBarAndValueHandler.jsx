@@ -142,7 +142,7 @@ export default function SearchBarAndValueHandler() {
                     </Button>
 
                     <Button variant="contained" color="warning" onClick={handleClear}>
-                        Clear
+                        Clear Parameters
                     </Button>
                 </div>
             </Card>

@@ -90,6 +90,7 @@ const EditableDataCrudGrid = ({products}) => {
                 // setLoading(false);
             });
         setRows(rows.filter((row) => row.id !== id));
+        setSnackbar({children: 'Product successfully deleted', severity: 'success'});
     };
 
     const handleCancelClick = (id) => () => {
@@ -218,7 +219,7 @@ const EditableDataCrudGrid = ({products}) => {
                     open
                     anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
                     onClose={handleCloseSnackbar}
-                    autoHideDuration={6000}
+                    autoHideDuration={3000}
                 >
                     <Alert {...snackbar} onClose={handleCloseSnackbar}/>
                 </Snackbar>

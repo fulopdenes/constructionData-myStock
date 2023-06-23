@@ -4,6 +4,7 @@ import {Card} from "@mui/material"
 import NewProductForm from "../components/form/NewProductForm";
 
 const AddNewElement = () => {
+
     return (
         <>
             <Card sx={{
@@ -16,7 +17,9 @@ const AddNewElement = () => {
                 gap: 0,
                 borderRadius: "15px"
             }} elevation={10}>
-                <NewProductForm/>
+                <NewProductForm
+                />
+
             </Card>
         </>
     )

@@ -2,10 +2,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
-import React from "react";
+import React, {useState} from "react";
 import SaveIcon from "@mui/icons-material/Save";
 import {useNavigate} from "react-router-dom";
 import LoadingButton from '@mui/lab/LoadingButton';
+import {Alert, Snackbar} from "@mui/material";
 
 const createProduct = (product) => {
     return fetch(`${process.env.REACT_APP_API_URL}/api/products/new`, {
@@ -19,11 +20,26 @@ const createProduct = (product) => {
 
 const NewProductForm = () => {
     const navigate = useNavigate();
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+
+    const [productName, setProductName] = useState("");
+    const [category, setCategory] = useState("");
+    const [productTechCode, setProductTechCode] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [quantityType, setQuantityType] = useState("");
+    const [relatedUnit, setRelatedUnit] = useState("");
+    const [roomNameOfInstallation, setRoomNameOfInstallation] = useState("");
+
+    const [snackbar, setSnackbar] = React.useState(null);
+    const handleCloseSnackbar = () => setSnackbar(null);
+
 
     const handleCreateEmployee = (product) => {
         createProduct(product)
             .then(() => {
-                navigate("/");
+                setButtonDisabled(false);
+                setSnackbar({children: 'New product parameters are saved', severity: 'success'});
+
             })
             .catch((err) => {
                 throw err;
@@ -34,12 +50,21 @@ const NewProductForm = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const entries = [...formData.entries()];
+        setButtonDisabled(true);
 
         const newProduct = entries.reduce((acc, entry) => {
             const [k, v] = entry;
             acc[k] = v;
             return acc;
         }, {});
+
+        setProductName("");
+        setCategory("");
+        setProductTechCode("");
+        setQuantity("");
+        setQuantityType("");
+        setRelatedUnit("");
+        setRoomNameOfInstallation("");
 
         return handleCreateEmployee(newProduct);
     };
@@ -65,6 +90,8 @@ const NewProductForm = () => {
                     id="productName"
                     label="Product Name"
                     variant="outlined"
+                    value={productName}
+                    onChange={(e) => setProductName(e.target.value)}
                     required
                 />
             </FormControl>
@@ -75,6 +102,8 @@ const NewProductForm = () => {
                     id="category"
                     label="Category"
                     variant="outlined"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                     required
                 />
             </FormControl>
@@ -85,6 +114,8 @@ const NewProductForm = () => {
                     id="productTechCode"
                     label="TechCode"
                     variant="outlined"
+                    value={productTechCode}
+                    onChange={(e) => setProductTechCode(e.target.value)}
                     required
                 />
             </FormControl>
@@ -96,6 +127,8 @@ const NewProductForm = () => {
                     label="Quantity"
                     type="number"
                     variant="outlined"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
                     required
                 />
             </FormControl>
@@ -106,6 +139,8 @@ const NewProductForm = () => {
                     id="quantityType"
                     label="Quantity Type"
                     variant="outlined"
+                    value={quantityType}
+                    onChange={(e) => setQuantityType(e.target.value)}
                     required
                 />
             </FormControl>
@@ -116,6 +151,8 @@ const NewProductForm = () => {
                     id="relatedUnit"
                     label="Related Unit"
                     variant="outlined"
+                    value={relatedUnit}
+                    onChange={(e) => setRelatedUnit(e.target.value)}
                     required
                 />
             </FormControl>
@@ -126,6 +163,8 @@ const NewProductForm = () => {
                     id="roomNameOfInstallation"
                     label="Room Name"
                     variant="outlined"
+                    value={roomNameOfInstallation}
+                    onChange={(e) => setRoomNameOfInstallation(e.target.value)}
                     required
                 />
             </FormControl>
@@ -135,6 +174,7 @@ const NewProductForm = () => {
                     variant="contained"
                     type="submit"
                     loadingPosition="start"
+                    disabled={buttonDisabled}
                     startIcon={<SaveIcon />}
                 >
                     <span>Add New Product</span>
@@ -143,6 +183,16 @@ const NewProductForm = () => {
                 <Button variant="contained" color="warning" onClick={() => navigate(-1)} >
                     Cancel
                 </Button>
+                {!!snackbar && (
+                    <Snackbar
+                        open
+                        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+                        onClose={handleCloseSnackbar}
+                        autoHideDuration={3000}
+                    >
+                        <Alert {...snackbar} onClose={handleCloseSnackbar}/>
+                    </Snackbar>
+                )}
             </div>
         </Box>
     );

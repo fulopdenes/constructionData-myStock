@@ -64,32 +64,34 @@ const Office = () => {
             <>
                 <CircularIndeterminateLoading/>
             </>
-            )
-    }
-    return (
-        <>
-            <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
-                VIEW MODE
-            </Typography>
-            <ViewDataGrid products={data}/>
-            <Box sx={{position: 'relative', mt: 0, height: 80}}>
+        )
+    } else {
+        return (
+            <>
+                <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
+                    VIEW MODE
+                </Typography>
 
-                <StyledSpeedDial
-                    ariaLabel="SpeedDial playground example"
-                    icon={<SpeedDialIcon/>}
-                    direction="right"
-                >
-                    {actions.map((action) => (
-                        <SpeedDialAction
-                            key={action.name}
-                            icon={action.icon}
-                            tooltipTitle={action.name}
-                        />
-                    ))}
-                </StyledSpeedDial>
-            </Box>
-        </>
-    )
+                <ViewDataGrid products={data}/>
+                <Box sx={{position: 'relative', mt: 0, height: 80}}>
+
+                    <StyledSpeedDial
+                        ariaLabel="SpeedDial playground example"
+                        icon={<SpeedDialIcon/>}
+                        direction="right"
+                    >
+                        {actions.map((action) => (
+                            <SpeedDialAction
+                                key={action.name}
+                                icon={action.icon}
+                                tooltipTitle={action.name}
+                            />
+                        ))}
+                    </StyledSpeedDial>
+                </Box>
+            </>
+        )
+    }
 }
 
 export default Office;
