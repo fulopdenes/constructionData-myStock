@@ -37,7 +37,6 @@ public class ProductService {
 
     public boolean deleteProduct(Long id) {
         Optional<Product> product = productRepository.findById(id);
-        System.out.println(product.isPresent());
         if (product.isPresent()) {
             productRepository.deleteById(id);
             return true; // Deletion successful
@@ -84,7 +83,7 @@ public class ProductService {
             existingProduct.setRelatedUnit(updatedProductDTO.getRelatedUnit());
         }
         if (updatedProductDTO.getProductTechCode() != null) {
-            existingProduct.setRelatedUnit(updatedProductDTO.getProductTechCode());
+            existingProduct.setProductTechCode(updatedProductDTO.getProductTechCode());
         }
         if (updatedProductDTO.getQuantityType() != null) {
             existingProduct.setQuantityType(updatedProductDTO.getQuantityType());
