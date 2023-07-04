@@ -34,7 +34,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${process.env.REACT_APP_API_URL}/products/all`, {signal}).then((res) => res.json());
 };
 
 const Office = () => {
@@ -67,7 +67,7 @@ const Office = () => {
         )
     } else {
         return (
-            <>
+            <div style={{paddingLeft: '24px', paddingRight: '24px'}}>
                 <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
                     VIEW MODE
                 </Typography>
@@ -89,7 +89,7 @@ const Office = () => {
                         ))}
                     </StyledSpeedDial>
                 </Box>
-            </>
+            </div>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render} from '@testing-library/react';
-import Office from './Office';
+import Office from '../Office';
 import '@testing-library/jest-dom';
 
 

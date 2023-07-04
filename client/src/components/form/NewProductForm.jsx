@@ -9,7 +9,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {Alert, Snackbar} from "@mui/material";
 
 const createProduct = (product) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/products/new`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/products/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -22,8 +22,9 @@ const NewProductForm = () => {
     const navigate = useNavigate();
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
+    const [buildingId, setBuildingId] = useState("");
     const [productName, setProductName] = useState("");
-    const [category, setCategory] = useState("");
+    const [categoryType, setCategoryType] = useState("");
     const [productTechCode, setProductTechCode] = useState("");
     const [quantity, setQuantity] = useState("");
     const [quantityType, setQuantityType] = useState("");
@@ -58,8 +59,9 @@ const NewProductForm = () => {
             return acc;
         }, {});
 
+        setBuildingId("");
         setProductName("");
-        setCategory("");
+        setCategoryType("");
         setProductTechCode("");
         setQuantity("");
         setQuantityType("");
@@ -86,6 +88,30 @@ const NewProductForm = () => {
 
             <FormControl fullWidth>
                 <TextField
+                    name="buildingId"
+                    id="buildingId"
+                    label="Building Id"
+                    variant="outlined"
+                    value={buildingId}
+                    onChange={(e) => setBuildingId(e.target.value)}
+                    required
+                />
+            </FormControl>
+
+            <FormControl fullWidth>
+                <TextField
+                    name="relatedUnit"
+                    id="relatedUnit"
+                    label="Related Unit"
+                    variant="outlined"
+                    value={relatedUnit}
+                    onChange={(e) => setRelatedUnit(e.target.value)}
+                    required
+                />
+            </FormControl>
+
+            <FormControl fullWidth>
+                <TextField
                     name="productName"
                     id="productName"
                     label="Product Name"
@@ -98,12 +124,12 @@ const NewProductForm = () => {
 
             <FormControl fullWidth>
                 <TextField
-                    name="category"
-                    id="category"
+                    name="categoryType"
+                    id="categoryType"
                     label="Category"
                     variant="outlined"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    value={categoryType}
+                    onChange={(e) => setCategoryType(e.target.value)}
                     required
                 />
             </FormControl>
@@ -145,17 +171,7 @@ const NewProductForm = () => {
                 />
             </FormControl>
 
-            <FormControl fullWidth>
-                <TextField
-                    name="relatedUnit"
-                    id="relatedUnit"
-                    label="Related Unit"
-                    variant="outlined"
-                    value={relatedUnit}
-                    onChange={(e) => setRelatedUnit(e.target.value)}
-                    required
-                />
-            </FormControl>
+
 
             <FormControl fullWidth>
                 <TextField

@@ -1,15 +1,14 @@
 import React from 'react';
-import StorageLocationHandler from "./StorageLocationHandler";
 
 import SearchBarAndValueHandler from "./SearchBarAndValueHandler";
 
 const OnSite = () => {
 
     return (
-        <>
-            {/*<StorageLocationHandler/>*/}
+        <div style={{paddingLeft: '24px', paddingRight: '24px'}}>
+        {/*<StorageLocationHandler/>*/}
             <SearchBarAndValueHandler/>
-        </>
+        </div>
     )
 }
 

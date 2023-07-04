@@ -25,7 +25,7 @@ const useFakeMutation = () => {
 };
 
 const deleteProduct = (id) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/products/delete/${id}`, {
+    return fetch(`${process.env.REACT_APP_API_URL}/products/${id}`, {
         method: 'DELETE'
     }).then(() => {
         // console.log('removed');
@@ -40,14 +40,15 @@ const EditableDataCrudGrid = ({products}) => {
     // Map the data to rows
     const initialRowsFromTable = tableData.map((item) => ({
         id: item.id,
+        buildingId: item.buildingId,
         relatedUnit: item.relatedUnit,
         roomNameOfInstallation: item.roomNameOfInstallation,
-        category: item.category,
+        categoryType: item.categoryType,
         productName: item.productName,
         productTechCode: item.productTechCode,
         quantity: item.quantity,
         quantityType: item.quantityType,
-        deliveryNoteID: item.deliveryNoteID,
+        deliveryNoteId: item.deliveryNoteId,
         deliveryType: item.deliveryType,
         timeOfRecord: item.timeOfRecord,
         timeOfOrder: item.timeOfOrder,
@@ -154,14 +155,15 @@ const EditableDataCrudGrid = ({products}) => {
                 ];
             },
         },
+        {field: 'buildingId', headerName: 'Building', width: 50, editable: isEditable},
         {field: 'relatedUnit', headerName: 'Related Unit', width: 100, hide: true, editable: isEditable},
         {field: 'roomNameOfInstallation', headerName: 'Room Name', width: 150, editable: isEditable, hide: 'true'},
-        {field: 'category', headerName: 'Category', width: 150, editable: isEditable},
+        {field: 'categoryType', headerName: 'Category', width: 150, editable: isEditable},
         {field: 'productName', headerName: 'Product Name', width: 150, editable: isEditable},
         {field: 'productTechCode', headerName: 'Tech. Code', width: 150, editable: isEditable},
         {field: 'quantity', headerName: 'Quantity', width: 100, editable: isEditable},
         {field: 'quantityType', headerName: 'Quantity Type', width: 100, editable: isEditable},
-        {field: 'deliveryNoteID', headerName: 'DeliveryNote ID', width: 150, editable: isEditable},
+        {field: 'deliveryNoteId', headerName: 'DeliveryNote Id', width: 150, editable: isEditable},
         {field: 'deliveryType', headerName: 'Delivery Tye', width: 150, editable: isEditable},
         {field: 'timeOfRecord', headerName: 'Time of Record', width: 230, editable: isEditable},
         {field: 'timeOfOrder', headerName: 'Ordered at', width: 230, editable: isEditable},
@@ -182,7 +184,7 @@ const EditableDataCrudGrid = ({products}) => {
         async (newRow) => {
             // Make the HTTP request to save in the backend
             const updatedProduct = await mutateRow(newRow);
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/products/update/${updatedProduct.id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/products/${updatedProduct.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -212,6 +214,7 @@ const EditableDataCrudGrid = ({products}) => {
                 onRowModesModelChange={handleRowModesModelChange}
                 onRowEditStart={handleRowEditStart}
                 onRowEditStop={handleRowEditStop}
+                density="compact"
                 processRowUpdate={processRowUpdate}
             />
             {!!snackbar && (

@@ -33,7 +33,7 @@ const actions = [
 ];
 
 const fetchProducts = (signal) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/products/all`, {signal}).then((res) => res.json());
+    return fetch(`${process.env.REACT_APP_API_URL}/products/all`, {signal}).then((res) => res.json());
 };
 
 const OfficeEdit = () => {
@@ -62,11 +62,14 @@ const OfficeEdit = () => {
         return <CircularIndeterminateLoading/>;
     }
     return (
-        <>
+        <div style={{paddingLeft: '24px', paddingRight: '24px'}}>
             <Typography variant={"h8"} component={"div"} sx={{m: 0, p: 1, fontWeight: "bold"}}>
                 EDIT MODE
             </Typography>
-            <EditableDataCrudGrid products={data} setData={setData}/>
+            <EditableDataCrudGrid
+                products={data}
+                setData={setData}
+            />
             <Box sx={{position: 'relative', mt: 0, height: 80}}>
                 <StyledSpeedDial
                     ariaLabel="SpeedDial playground example"
@@ -82,8 +85,7 @@ const OfficeEdit = () => {
                     ))}
                 </StyledSpeedDial>
             </Box>
-
-        </>
+        </div>
     )
 }
 

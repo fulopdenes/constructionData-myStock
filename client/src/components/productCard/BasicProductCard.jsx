@@ -87,7 +87,7 @@ const BasicProductCard = ({data}) => {
                     Category:
                 </Typography>
                 <Typography>
-                    {data.category}
+                    {data.categoryType}
                 </Typography>
             </Card>
 
