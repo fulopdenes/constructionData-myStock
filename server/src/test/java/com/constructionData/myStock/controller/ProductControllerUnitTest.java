@@ -1,7 +1,6 @@
 package com.constructionData.myStock.controller;
 
 import com.constructionData.myStock.model.DTO.ProductDTO;
-import com.constructionData.myStock.model.Product;
 import com.constructionData.myStock.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,20 +22,38 @@ class ProductControllerUnitTest {
     @Mock
     private ProductService productService;
     private ProductController productController;
-    private List<Product> productList;
+    private List<ProductDTO> productList;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         productController = new ProductController(productService);
 
+        ProductDTO product1 = ProductDTO.builder()
+                .productTechCode("123")
+                .categoryType("parketta")
+                .productName("Tölgy-nature")
+                .quantity(25.0)
+                .quantityType("nm")
+                .relatedUnit("19")
+                .roomNameOfInstallation("nappali")
+                .timeOfRecord(LocalDateTime.now())
+                .build();
+
+        ProductDTO product2 = ProductDTO.builder()
+                .productTechCode("1234")
+                .categoryType("parketta")
+                .productName("Tölgy-nature")
+                .quantity(20.0)
+                .quantityType("nm")
+                .relatedUnit("18")
+                .roomNameOfInstallation("nappali")
+                .timeOfRecord(LocalDateTime.now())
+                .build();
+
         this.productList = new ArrayList<>();
-        this.productList.add(new Product(1L, "relatedUnit1", "category1", "productName1", 25.0,
-                "quantityType1", "productTechCode1", "roomNameOfInstallation1",
-                "deliveryType1", "roomPlanCode1", LocalDateTime.now()));
-        this.productList.add(new Product(2L, "relatedUnit2", "category2", "productName2", 25.0,
-                "quantityType2", "productTechCode2", "roomNameOfInstallation2",
-                "deliveryType2", "roomPlanCode2", LocalDateTime.now()));
+        this.productList.add(product1);
+        this.productList.add(product2);
     }
     @Test
     void getAllProducts_isProductAdded_productsListedSuccessfully() {
@@ -46,12 +64,12 @@ class ProductControllerUnitTest {
     @Test
     void findProductById_WithValidId_productFindSuccessfully() {
         // Mock the productService to return a valid product
-        Product mockProduct = new Product();
+        ProductDTO mockProduct = new ProductDTO();
         when(productService.getProductById(1L)).thenReturn(mockProduct);
 
         // Create the controller and call the method
         ProductController controller = new ProductController(productService);
-        ResponseEntity<Product> response = controller.findProductById(1L);
+        ResponseEntity<ProductDTO> response = controller.findProductById(1L);
 
         // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -68,7 +86,7 @@ class ProductControllerUnitTest {
 
         // Create the controller and call the method
         ProductController controller = new ProductController(productService);
-        ResponseEntity<Product> response = controller.findProductById(2L);
+        ResponseEntity<ProductDTO> response = controller.findProductById(2L);
 
         // Verify the response
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -91,17 +109,18 @@ class ProductControllerUnitTest {
     void createProduct_WithValidParameters_ShouldReturnCreated() {
         // Arrange
         ProductDTO newProduct = ProductDTO.builder()
-                .relatedUnit("string")
-                .category("string")
+                .buildingId("VII.")
+                .relatedUnit("1")
+                .categoryType("string")
                 .productName("string")
-                .quantity(0.0)
+                .quantity(2.0)
                 .quantityType("string")
                 .productTechCode("string")
                 .deliveryType("string")
                 .roomNameOfInstallation("string")
                 .roomPlanCode("string")
                 .timeOfOrder(LocalDateTime.now())
-                .deliveryNoteID("string")
+                .deliveryNoteId("string")
                 .timeOfArrivedAtSite(LocalDateTime.now())
                 .placeOfStorage("string")
                 .timeOfInstalled(LocalDateTime.now())
@@ -118,15 +137,15 @@ class ProductControllerUnitTest {
     void createProduct_WithMissingTwoParameters_ShouldReturnBadRequestWithMessage() {
         // Arrange
         ProductDTO newProduct = ProductDTO.builder()
-                .relatedUnit("string")
-                .category("string")
+                .relatedUnit("1")
+                .categoryType("string")
                 .quantityType("string")
                 .productTechCode("string")
                 .deliveryType("string")
                 .roomNameOfInstallation("string")
                 .roomPlanCode("string")
                 .timeOfOrder(LocalDateTime.now())
-                .deliveryNoteID("string")
+                .deliveryNoteId("string")
                 .timeOfArrivedAtSite(LocalDateTime.now())
                 .placeOfStorage("string")
                 .timeOfInstalled(LocalDateTime.now())
@@ -137,8 +156,20 @@ class ProductControllerUnitTest {
 
         // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertEquals("The following parameters are missing or invalid: ProductName Quantity ",
-                response.getBody());
+
+        String expectedErrorMessage = "Validation error: productName - must not be blank\n" +
+                "Validation error: buildingId - must not be null\n" +
+                "Validation error: quantity - must be greater than 0\n";
+
+        String responseBody = (String) response.getBody();
+        String[] expectedLines = expectedErrorMessage.split("\n");
+        String[] actualLines = responseBody.split("\n");
+
+        // Compare the lines in any order
+        Arrays.sort(expectedLines);
+        Arrays.sort(actualLines);
+
+        assertEquals(Arrays.toString(expectedLines), Arrays.toString(actualLines));
     }
 
     @Test
@@ -148,7 +179,7 @@ class ProductControllerUnitTest {
                 .deliveryType("string")
                 .roomPlanCode("string")
                 .timeOfOrder(LocalDateTime.now())
-                .deliveryNoteID("string")
+                .deliveryNoteId("string")
                 .timeOfArrivedAtSite(LocalDateTime.now())
                 .placeOfStorage("string")
                 .timeOfInstalled(LocalDateTime.now())
@@ -159,9 +190,25 @@ class ProductControllerUnitTest {
 
         // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertEquals("The following parameters are missing or invalid: ProductName RelatedUnit Category QuantityType " +
-                        "Quantity ProductTechCode RoomNameOfInstallation ",
-                response.getBody());
+
+        String expectedErrorMessage = "Validation error: productName - must not be blank\n" +
+                "Validation error: productTechCode - must not be blank\n" +
+                "Validation error: roomNameOfInstallation - must not be blank\n" +
+                "Validation error: quantity - must be greater than 0\n" +
+                "Validation error: categoryType - must not be blank\n" +
+                "Validation error: buildingId - must not be null\n" +
+                "Validation error: relatedUnit - must not be null\n" +
+                "Validation error: quantityType - must not be blank\n";
+
+        String responseBody = (String) response.getBody();
+        String[] expectedLines = expectedErrorMessage.split("\n");
+        String[] actualLines = responseBody.split("\n");
+
+        // Compare the lines in any order
+        Arrays.sort(expectedLines);
+        Arrays.sort(actualLines);
+
+        assertEquals(Arrays.toString(expectedLines), Arrays.toString(actualLines));
     }
 
     @Test
@@ -171,17 +218,17 @@ class ProductControllerUnitTest {
         ProductDTO updatedProduct = ProductDTO.builder().productName("Updated Product").quantity(10.99).build();
         // Set the fields of updatedProduct as required for the test
 
-        Product existingProduct = Product.builder().productName("Existing Product").quantity(9.99).build();
+        ProductDTO existingProduct = ProductDTO.builder().productName("Existing Product").quantity(9.99).build();
         // Set the fields of existingProduct as required for the test
 
-        Product updatedDatabaseProduct = Product.builder().productName("Updated Product").quantity(10.99).build();
+        ProductDTO updatedDatabaseProduct = ProductDTO.builder().productName("Updated Product").quantity(10.99).build();
         // Set the fields of updatedDatabaseProduct as required for the test
 
         when(productService.getProductById(productId)).thenReturn(existingProduct);
         when(productService.updateProduct(existingProduct, updatedProduct)).thenReturn(updatedDatabaseProduct);
 
         // Act
-        ResponseEntity<Product> response = productController.updateProduct(productId, updatedProduct);
+        ResponseEntity<ProductDTO> response = productController.updateProduct(productId, updatedProduct);
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -203,7 +250,7 @@ class ProductControllerUnitTest {
         when(productService.getProductById(invalidId)).thenReturn(null);
 
         // Act
-        ResponseEntity<Product> response = productController.updateProduct(invalidId, updatedProduct);
+        ResponseEntity<ProductDTO> response = productController.updateProduct(invalidId, updatedProduct);
 
         // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());

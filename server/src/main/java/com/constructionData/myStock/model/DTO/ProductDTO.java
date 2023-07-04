@@ -1,35 +1,102 @@
 package com.constructionData.myStock.model.DTO;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.*;
 
 import java.time.LocalDateTime;
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
+@Entity(name = "products")
 public class ProductDTO {
 
-    //Office-Define
-    private String relatedUnit; // VII.001
-    private String category; // parketta
-    private String productName; // tölgy juhar
-    private Double quantity; // 2
-    private String quantityType; // nm;
-    private String productTechCode; // 053900699
-    private String deliveryType; // generalDelivery
-    private String roomNameOfInstallation; // nappali
-    private String roomPlanCode; //optional // N-05
+    // Office-Define
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
+    private Long id;
 
-    //Office-ordered
-    private LocalDateTime timeOfOrder; // dateAndTime
+    @NotNull
+    @Column(nullable = false)
+    private String buildingId;
 
-    //Site-handover
-    private String deliveryNoteID; //optional; // 1568
-    private LocalDateTime timeOfArrivedAtSite; // dateAndTime
-    private String placeOfStorage; // P1 raktar
+    @NotNull
+    @Column(nullable = false)
+    private String relatedUnit;
 
-    //Site-installed
-    private LocalDateTime timeOfInstalled; // dateAndTime
+    @NotBlank
+    @Column(nullable = false)
+    private String categoryType;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String productName;
+
+    @Positive
+    @Column(nullable = false)
+    private double quantity;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String quantityType;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String productTechCode;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String roomNameOfInstallation;
+
+    private String deliveryType;
+
+    private String roomPlanCode;
+
+    // Office-ordered
+    private LocalDateTime timeOfOrder;
+
+    // Site-handover
+    private String deliveryNoteId;
+
+    private LocalDateTime timeOfArrivedAtSite;
+
+    private String placeOfStorage;
+
+    // Site-installed
+    private LocalDateTime timeOfInstalled;
+
+    // Server
+    private LocalDateTime timeOfRecord;
+
+    private LocalDateTime lastTimeOfModified;
+
+    @Override
+    public String toString() {
+        return "ProductDTO{" +
+                "id=" + id +
+                ", buildingId='" + buildingId + '\'' +
+                ", relatedUnit=" + relatedUnit +
+                ", categoryType='" + categoryType + '\'' +
+                ", productName='" + productName + '\'' +
+                ", quantity=" + quantity +
+                ", quantityType='" + quantityType + '\'' +
+                ", productTechCode='" + productTechCode + '\'' +
+                ", roomNameOfInstallation='" + roomNameOfInstallation + '\'' +
+                ", deliveryType='" + deliveryType + '\'' +
+                ", roomPlanCode='" + roomPlanCode + '\'' +
+                ", timeOfOrder=" + timeOfOrder +
+                ", deliveryNoteId='" + deliveryNoteId + '\'' +
+                ", timeOfArrivedAtSite=" + timeOfArrivedAtSite +
+                ", placeOfStorage='" + placeOfStorage + '\'' +
+                ", timeOfInstalled=" + timeOfInstalled +
+                ", timeOfRecord=" + timeOfRecord +
+                ", lastTimeOfModified=" + lastTimeOfModified +
+                '}';
+    }
 }
 

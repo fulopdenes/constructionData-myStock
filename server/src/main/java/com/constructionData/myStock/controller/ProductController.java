@@ -1,19 +1,25 @@
 package com.constructionData.myStock.controller;
 
 import com.constructionData.myStock.model.DTO.ProductDTO;
-import com.constructionData.myStock.model.Product;
 import com.constructionData.myStock.service.ProductService;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 
 @RestController
 @CrossOrigin(origins = "https://mystock-frontend.onrender.com")
-@RequestMapping("/api/products")
+@RequestMapping("products")
 public class ProductController {
 
     private final ProductService productService;
@@ -24,13 +30,13 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<Product> findProductById(@PathVariable Long id) {
-        Product product = productService.getProductById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductDTO> findProductById(@PathVariable Long id) {
+        ProductDTO product = productService.getProductById(id);
         if (product != null) {
             return new ResponseEntity<>(product, HttpStatus.OK);
         } else {
@@ -40,64 +46,46 @@ public class ProductController {
 
     @PostMapping("/new")
     public ResponseEntity<?> createProduct(@RequestBody ProductDTO newProduct) {
+
         if (newProduct == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        if (newProduct.getProductName() == null
-                || newProduct.getRelatedUnit() == null
-                || newProduct.getCategory() == null
-                || newProduct.getQuantityType() == null
-                || newProduct.getQuantity() == null
-                || newProduct.getProductTechCode() == null
-                || newProduct.getRoomNameOfInstallation() == null
-        ) {
-            String errorMessage = "The following parameters are missing or invalid: ";
-            if (newProduct.getProductName() == null) {
-                errorMessage += "ProductName ";
-            }
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
 
-            if (newProduct.getRelatedUnit() == null) {
-                errorMessage += "RelatedUnit ";
-            }
+        Set<ConstraintViolation<ProductDTO>> violations = validator.validate(newProduct);
 
-            if (newProduct.getCategory() == null) {
-                errorMessage += "Category ";
+        if (violations.isEmpty()) {
+            // DTO is valid, proceed with further operations
+            ProductDTO createdProduct = productService.createProduct(newProduct);
+            return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+        } else {
+            StringBuilder errorMessage = new StringBuilder();
+            // Handle validation failures
+            for (ConstraintViolation<ProductDTO> violation : violations) {
+                String propertyPath = violation.getPropertyPath().toString();
+                String message = violation.getMessage();
+                errorMessage.append("Validation error: ").append(propertyPath).append(" - ").append(message).append("\n");
             }
-
-            if (newProduct.getQuantityType() == null) {
-                errorMessage += "QuantityType ";
-            }
-            if (newProduct.getQuantity() == null) {
-                errorMessage += "Quantity ";
-            }
-            if (newProduct.getProductTechCode() == null) {
-                errorMessage += "ProductTechCode ";
-            }
-            if (newProduct.getRoomNameOfInstallation() == null) {
-                errorMessage += "RoomNameOfInstallation ";
-            }
-            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(errorMessage.toString(), HttpStatus.BAD_REQUEST);
         }
-
-        Product createdProduct = productService.createProduct(newProduct);
-        return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
 
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
-        Optional<Product> optionalProduct = Optional.ofNullable(productService.getProductById(id));
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductDTO> updateProduct(@PathVariable Long id, @RequestBody ProductDTO updatedProduct) {
+        Optional<ProductDTO> optionalProduct = Optional.ofNullable(productService.getProductById(id));
         if (optionalProduct.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
-            Product product = optionalProduct.get();
-            Product updatedDatabaseProduct = productService.updateProduct(product, updatedProduct);
+            ProductDTO existingProduct = optionalProduct.get();
+            ProductDTO updatedDatabaseProduct = productService.updateProduct(existingProduct, updatedProduct);
             return new ResponseEntity<>(updatedDatabaseProduct, HttpStatus.OK);
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteProduct(@PathVariable Long id) {
         boolean isDeleted = productService.deleteProduct(id);
         if (isDeleted) {
@@ -106,7 +94,4 @@ public class ProductController {
             return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
         }
     }
-
-
-
 }

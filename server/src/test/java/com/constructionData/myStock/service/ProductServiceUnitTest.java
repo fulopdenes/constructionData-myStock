@@ -1,7 +1,6 @@
 package com.constructionData.myStock.service;
 
 import com.constructionData.myStock.model.DTO.ProductDTO;
-import com.constructionData.myStock.model.Product;
 import com.constructionData.myStock.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ class ProductServiceUnitTest {
 
     private ProductService mockProductService;
 
-    private List<Product> mockProductList;
+    private List<ProductDTO> mockProductList;
 
     @BeforeEach
     void setUp_beforeEach() {
@@ -32,13 +31,41 @@ class ProductServiceUnitTest {
 
         mockProductService = new ProductService(mockProductRepository);
 
+        ProductDTO newProduct1 = ProductDTO.builder()
+                .relatedUnit("1")
+                .categoryType("string")
+                .quantityType("string")
+                .productTechCode("string")
+                .deliveryType("string")
+                .roomNameOfInstallation("string")
+                .roomPlanCode("string")
+                .timeOfOrder(LocalDateTime.now())
+                .deliveryNoteId("string")
+                .timeOfArrivedAtSite(LocalDateTime.now())
+                .placeOfStorage("string")
+                .timeOfInstalled(LocalDateTime.now())
+                .build();
+
+        ProductDTO newProduct2 = ProductDTO.builder()
+                .relatedUnit("1")
+                .categoryType("string")
+                .quantityType("string")
+                .productTechCode("string")
+                .deliveryType("string")
+                .roomNameOfInstallation("string")
+                .roomPlanCode("string")
+                .timeOfOrder(LocalDateTime.now())
+                .deliveryNoteId("string")
+                .timeOfArrivedAtSite(LocalDateTime.now())
+                .placeOfStorage("string")
+                .timeOfInstalled(LocalDateTime.now())
+                .build();
+
+
         this.mockProductList = new ArrayList<>();
-        this.mockProductList.add(new Product(1L, "relatedUnit1", "category1", "productName1", 25.0,
-                "quantityType1", "productTechCode1", "roomNameOfInstallation1",
-                "deliveryType1", "roomPlanCode1", LocalDateTime.now()));
-        this.mockProductList.add(new Product(2L, "relatedUnit2", "category2", "productName2", 25.0,
-                "quantityType2", "productTechCode2", "roomNameOfInstallation2",
-                "deliveryType2", "roomPlanCode2", LocalDateTime.now()));
+        this.mockProductList.add(newProduct1);
+        this.mockProductList.add(newProduct2);
+
 
     }
     @Test
@@ -59,7 +86,7 @@ class ProductServiceUnitTest {
         Long productId = 1L;
 
         // Mock the productRepository.findById(id) method
-        Product product = new Product();
+        ProductDTO product = new ProductDTO();
         when(mockProductRepository.findById(productId)).thenReturn(Optional.of(product));
 
         // Perform the deleteProduct operation
@@ -97,15 +124,15 @@ class ProductServiceUnitTest {
         // Mock data
         ProductDTO newProduct = ProductDTO.builder()
                 .productName("string")
-                .relatedUnit("string")
-                .category("string")
+                .relatedUnit("1")
+                .categoryType("string")
                 .quantityType("string")
                 .productTechCode("string")
                 .deliveryType("string")
                 .roomNameOfInstallation("string")
                 .roomPlanCode("string")
                 .timeOfOrder(LocalDateTime.now())
-                .deliveryNoteID("string")
+                .deliveryNoteId("string")
                 .timeOfArrivedAtSite(LocalDateTime.now())
                 .placeOfStorage("string")
                 .timeOfInstalled(LocalDateTime.now())
@@ -116,14 +143,14 @@ class ProductServiceUnitTest {
         // Set other properties of newProduct...
 
         // Mock the productRepository.save(createdNewProduct) method
-        Product createdProduct = mockProductList.get(1);
-        when(mockProductRepository.save(any(Product.class))).thenReturn(createdProduct);
+        ProductDTO createdProduct = mockProductList.get(1);
+        when(mockProductRepository.save(any(ProductDTO.class))).thenReturn(createdProduct);
 
         // Perform the createProduct operation
-        Product result = mockProductService.createProduct(newProduct);
+        ProductDTO result = mockProductService.createProduct(newProduct);
 
         // Verify the productRepository.save() method was called correctly
-        verify(mockProductRepository, times(1)).save(any(Product.class));
+        verify(mockProductRepository, times(1)).save(any(ProductDTO.class));
 
         // Verify the result
         assertNotNull(result);
@@ -133,15 +160,15 @@ class ProductServiceUnitTest {
     @Test
     public void testUpdateProduct_ReturnsUpdatedProduct() {
         // Mock data
-        Product existingProduct = mockProductList.get(1);
+        ProductDTO existingProduct = mockProductList.get(1);
         existingProduct.setProductName("Existing Product");
         existingProduct.setQuantity(10.0);
         // Set other properties as needed for testing
 
         ProductDTO newProduct = ProductDTO.builder()
                 .productName("string")
-                .relatedUnit("string")
-                .category("string")
+                .relatedUnit("2")
+                .categoryType("string")
                 .quantity(0.0)
                 .quantityType("string")
                 .productTechCode("string")
@@ -149,7 +176,7 @@ class ProductServiceUnitTest {
                 .roomNameOfInstallation("string")
                 .roomPlanCode("string")
                 .timeOfOrder(LocalDateTime.now())
-                .deliveryNoteID("string")
+                .deliveryNoteId("string")
                 .timeOfArrivedAtSite(LocalDateTime.now())
                 .placeOfStorage("string")
                 .timeOfInstalled(LocalDateTime.now())
@@ -160,11 +187,11 @@ class ProductServiceUnitTest {
         // Set other properties as needed for testing
 
         // Mock the productRepository.save() method
-        Product savedProduct = mockProductList.get(1);
-        when(mockProductRepository.save(any(Product.class))).thenReturn(savedProduct);
+        ProductDTO savedProduct = mockProductList.get(1);
+        when(mockProductRepository.save(any(ProductDTO.class))).thenReturn(savedProduct);
 
         // Perform the updateProduct operation
-        Product updatedProduct = mockProductService.updateProduct(existingProduct, newProduct);
+        ProductDTO updatedProduct = mockProductService.updateProduct(existingProduct, newProduct);
 
         // Verify the productRepository.save() method was called with the existing product
         verify(mockProductRepository, times(1)).save(existingProduct);

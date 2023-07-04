@@ -30,7 +30,7 @@ class ProductDTOUnitTest {
 
         ProductDTO productDTO = ProductDTO.builder()
                 .relatedUnit(relatedUnit)
-                .category(category)
+                .categoryType(category)
                 .productName(productName)
                 .quantity(quantity)
                 .quantityType(quantityType)
@@ -39,7 +39,7 @@ class ProductDTOUnitTest {
                 .deliveryType(deliveryType)
                 .roomPlanCode(roomPlanCode)
                 .timeOfOrder(timeOfOrder)
-                .deliveryNoteID(deliveryNoteId)
+                .deliveryNoteId(deliveryNoteId)
                 .timeOfArrivedAtSite(timeOfArrivedAtSite)
                 .placeOfStorage(placeOfStorage)
                 .timeOfInstalled(timeOfInstalled)
@@ -47,7 +47,7 @@ class ProductDTOUnitTest {
 
         // Verify the values using getters or direct field access
         assertEquals(relatedUnit, productDTO.getRelatedUnit());
-        assertEquals(category, productDTO.getCategory());
+        assertEquals(category, productDTO.getCategoryType());
         assertEquals(productName, productDTO.getProductName());
         assertEquals(quantity, productDTO.getQuantity());
         assertEquals(quantityType, productDTO.getQuantityType());
@@ -58,7 +58,7 @@ class ProductDTOUnitTest {
 
         // Additional verify the values using getters:
         assertEquals(timeOfOrder, productDTO.getTimeOfOrder());
-        assertEquals(deliveryNoteId, productDTO.getDeliveryNoteID());
+        assertEquals(deliveryNoteId, productDTO.getDeliveryNoteId());
         assertEquals(timeOfArrivedAtSite, productDTO.getTimeOfArrivedAtSite());
         assertEquals(placeOfStorage, productDTO.getPlaceOfStorage());
         assertEquals(timeOfInstalled, productDTO.getTimeOfInstalled());
@@ -74,7 +74,7 @@ class ProductDTOUnitTest {
         productDTO.setRelatedUnit(relatedUnit);
 
         String category = "parketta";
-        productDTO.setCategory(category);
+        productDTO.setCategoryType(category);
 
         String productName = "tölgy juhar";
         productDTO.setProductName(productName);
@@ -84,7 +84,7 @@ class ProductDTOUnitTest {
 
         // Verify that the values were set correctly
         assertEquals(relatedUnit, productDTO.getRelatedUnit());
-        assertEquals(category, productDTO.getCategory());
+        assertEquals(category, productDTO.getCategoryType());
         assertEquals(productName, productDTO.getProductName());
         assertEquals(quantity, productDTO.getQuantity());
     }

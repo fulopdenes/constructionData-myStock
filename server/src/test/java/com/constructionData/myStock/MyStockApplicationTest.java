@@ -30,8 +30,8 @@ class MyStockApplicationTest {
 
     @Test
     public void applicationRuns_checkTwoPortsParallel_itWorks_true() {
-        String[] args1 = {"--server.port=8082"}; // Set the port to 8080
-        String[] args2 = {"--server.port=8083"}; // Set the port to 8081
+        String[] args1 = {"--server.port=8082"}; // Set the port to 8082
+        String[] args2 = {"--server.port=8083"}; // Set the port to 8083
 
         MyStockApplication.main(args1);
 
